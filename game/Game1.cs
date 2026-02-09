@@ -11,6 +11,8 @@ namespace CardGame;
 
 public class Game1 : Core
 {
+	private Sprite _card;
+
 	public Game1() : base("Card Game", 1280, 720, false)
     {
     }
@@ -22,6 +24,10 @@ public class Game1 : Core
 
 	protected override void LoadContent()
 	{
+		TextureAtlas atlas = TextureAtlas.FromFile(Content, "sprites/card.xml");
+
+		_card = atlas.CreateSprite("0");
+		_card.Scale = new Vector2(4.0f, 4.0f);
 	}
 
 	protected override void Update(GameTime gameTime)
@@ -37,6 +43,7 @@ public class Game1 : Core
 		GraphicsDevice.Clear(Color.CornflowerBlue);
 
 		SpriteBatch.Begin();
+		_card.Draw(SpriteBatch, new Vector2(0.0f,0.0f));
 		SpriteBatch.End();
 
 		base.Draw(gameTime);

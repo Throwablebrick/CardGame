@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+	<Texture>sprites/base_card_temp</Texture>
+	<Regions>
+		<Region name="0" x="0" y="0" width="40" height="56" />
+	</Regions>
+	<Animations>
+	</Animations>
+</TextureAtlas>
