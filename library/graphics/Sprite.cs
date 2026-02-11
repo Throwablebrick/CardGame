@@ -16,6 +16,11 @@ public class Sprite
 	public float Height => Region.Height * Scale.Y;
 
 	public Sprite() { }
+	public Sprite(ContentManager content, string path, string name)
+	{
+		TextureAtlas() temp = TextureAtlas.FromFile(content, path);
+		Region = temp.GetRegion(name);
+	}
 	public Sprite(TextureRegion region)
 	{
 		Region = region;

@@ -82,7 +82,7 @@ public class CardData
 				string spriteName = root.Element("SpriteName").Value;
 
 				//ToDo make sprite constructor work like this
-				card.CardSprite = new Sprite(spritePath, spriteName);
+				card.CardSprite = new Sprite(content, spritePath, spriteName);
 
 				card.CardName = root.Element("Name").Value;
 				card.CardType = root.Element("Type").Value;

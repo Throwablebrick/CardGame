@@ -17,15 +17,16 @@ public class CardScene : Scene
 	
 	public override void LoadContent()
 	{
+		//for reference this is what you do if you haven't made an xml file to make a textureatlas from that file
 		TextureAtlas atlas = new TextureAtlas(Content.Load<Texture2D>("sprites/card_zone_temp"));
 		atlas.AddRegion("your mother", 0, 0, 175, 117);
 
 		Zone = atlas.CreateSprite("your mother");
 		
-		//this will be replaced with a method called Draw() that grabs and removes a card from the deck
+		//this will be replaced with a method called DrawCard() that grabs and removes a card from the deck
 		for (int i = 0; i<7; i++)
 		{
-			a
+			Hand.Add(CardData.FromFile(Content, "cards/base.xml"));
 		}
 	}
 }
