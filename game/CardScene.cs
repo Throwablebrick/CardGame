@@ -29,4 +29,21 @@ public class CardScene : Scene
 			Hand.Add(CardData.FromFile(Content, "cards/base.xml"));
 		}
 	}
+
+	public override void Draw(GameTime gameTime)
+	{
+		GraphicsDevice.Clear(Color.CornflowerBlue);
+
+		Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+		float tilt = -45.0f;
+		for (int i = 0; i<Hand.Count; i++)
+		{
+			Hand[i].Rotation = tilt;
+			tilt += 90/Hand.Count;
+			Hand[i].Draw(Core.SpriteBatch, 640 + (i*5));//finish writing this to get card tilt
+		}
+		Core.SpriteBatch.End();
+
+		base.Draw(gameTime);
+	}
 }
