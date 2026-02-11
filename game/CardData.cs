@@ -20,17 +20,17 @@ public class CardData
     private int _cardToughness;
     private int _cardNumberOfZoneChanges;
     private Sprite _cardSprite;
-    private int[] _cardCost; //might change to a list, but I think we want some sort of multi-container to allow for multiple different cost types which we can identify by index
+    public int[] _cardCost; //might change to a list, but I think we want some sort of multi-container to allow for multiple different cost types which we can identify by index
     
     //CardData properties
-    public string CardName {get{return _cardName;}}
+    public string CardName {get{return _cardName;} set {_cardName = value;}}
     public string CardType {get {return _cardType;} set {_cardType = value;}}
-    public string CardDescriptionText {get {return _cardDescriptionText;} /*set {_cardDescriptionText = value;} Might make it so that the value can be changed depending on how we want to implement card on card interaction UI*/}
+    public string CardDescriptionText {get {return _cardDescriptionText; set {_cardDescriptionText = value;}} /*set {_cardDescriptionText = value;} Might make it so that the value can be changed depending on how we want to implement card on card interaction UI*/}
     //public string CardDescriptionCode
     public int CardPower {get {return _cardPower;} set {_cardPower = value;}}
     public int CardToughness {get {return _cardToughness;} set {_cardToughness = value;}}
     public int CardNumberOfZoneChanges {get {return _cardNumberOfZoneChanges;} set {_cardNumberOfZoneChanges = value;}}
-    public Sprite CardSprite {get {return _cardSprite;}}
+    public Sprite CardSprite {get {return _cardSprite;} set {_cardSprite = value;}}
     public int[] CardCost {get {return _cardCost;} set {_cardCost = value;}}
 
     //CardData constructors
@@ -58,6 +58,56 @@ public class CardData
         _cardSprite = cardData.CardSprite;
         _cardCost = cardData.CardCost;
     }
+	public CardData()
+	{
+		//this should only really be called by the FromFile method unless you want to manually set values yourself
+		//like in the coresponding constructor for TextureAtlas which this approach is coppied from with the FromFile method
+		_cardCost = new int[1]; //change to whatever the max number of kinds of costs there are, 1 for now.
+	}
+
+	public static CardData FromFile(ContentManager content, string fileName)
+	{
+		CardData card = new CardData();
+
+		string filePath = Path.Combine(content.RootDirectory, fileName);
+
+		using (Stream stream = TitleContainer.OpenStream(filePath))
+		{
+			using (XmlReader reader = XmlReader.Create(stream))
+			{
+				XDocument doc = XDocument.Load(reader);
+				XElement root = doc.Root;
+
+				string spritePath = root.Element("SpritePath").Value;
+				string spriteName = root.Element("SpriteName").Value;
+
+				//ToDo make sprite constructor work like this
+				card.CardSprite = new Sprite(spritePath, spriteName);
+
+				card.CardName = root.Element("Name").Value;
+				card.CardType = root.Element("Type").Value;
+				card.CardDescriptionText = root.Element("Text").Value;
+				card.CardPower = int.Parse(root.Element("Power").Value ?? "0");
+				card.CardToughness = int.Parse(root.Element("Toughness").Value ?? "0");
+				card.CardNumberOfZoneChanges = int.Parse(root.Element("ZoneChanges").Value ?? "0");
+
+				var costs = root.Element("Costs")?.Elements("Cost");
+
+				if (costs != null)
+				{
+					int i = 0;
+					foreach (var cost in costs)
+					{
+						card._cardCost[i] = int.Parse(region.Attribute("value")?.Value ?? "0");
+						//this could also have an attribute akin to color that could be set here
+						i++;
+					}
+				}
+
+				return card;
+			}
+		}
+	}
 
     //CardDate methods
     //Going to wait to implement methods until we finalize some card interaction rules and whatnot

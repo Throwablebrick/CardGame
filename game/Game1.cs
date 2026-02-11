@@ -42,9 +42,9 @@ public class Game1 : Core
 	{
 		GraphicsDevice.Clear(Color.CornflowerBlue);
 
-		SpriteBatch.Begin();
+		Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
 		_card.Draw(SpriteBatch, new Vector2(0.0f,0.0f));
-		SpriteBatch.End();
+		Core.SpriteBatch.End();
 
 		base.Draw(gameTime);
 	}
