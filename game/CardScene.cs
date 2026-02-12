@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -15,6 +15,12 @@ public class CardScene : Scene
 	private Sprite Zone;
 	//some deck variable
 	
+	public override void Initialize()
+	{
+		Hand = new List<CardData>();
+		base.Initialize();
+	}
+
 	public override void LoadContent()
 	{
 		//for reference this is what you do if you haven't made an xml file to make a textureatlas from that file
@@ -30,17 +36,19 @@ public class CardScene : Scene
 		}
 	}
 
+	public override void Update(GameTime gameTime)
+	{
+		base.Update(gameTime);
+	}
+
 	public override void Draw(GameTime gameTime)
 	{
-		GraphicsDevice.Clear(Color.CornflowerBlue);
+		Core.GraphicsDevice.Clear(Color.CornflowerBlue);
 
 		Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
-		float tilt = -45.0f;
 		for (int i = 0; i<Hand.Count; i++)
 		{
-			Hand[i].Rotation = tilt;
-			tilt += 90/Hand.Count;
-			Hand[i].Draw(Core.SpriteBatch, 640 + (i*5));//finish writing this to get card tilt
+			Hand[i].Draw(Core.SpriteBatch, new Vector2(640.0f - (Hand.Count * Hand[0].Width/2) + (Hand[0].Width * i),0.0f));//finish writing this to get card tilt
 		}
 		Core.SpriteBatch.End();
 

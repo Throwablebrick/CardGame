@@ -1,6 +1,10 @@
 using System;
+using System.IO;
+using System.Xml;
+using System.Xml.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
@@ -25,7 +29,7 @@ public class CardData
     //CardData properties
     public string CardName {get{return _cardName;} set {_cardName = value;}}
     public string CardType {get {return _cardType;} set {_cardType = value;}}
-    public string CardDescriptionText {get {return _cardDescriptionText; set {_cardDescriptionText = value;}} /*set {_cardDescriptionText = value;} Might make it so that the value can be changed depending on how we want to implement card on card interaction UI*/}
+    public string CardDescriptionText {get {return _cardDescriptionText;} set {_cardDescriptionText = value;} /*set {_cardDescriptionText = value;} Might make it so that the value can be changed depending on how we want to implement card on card interaction UI*/}
     //public string CardDescriptionCode
     public int CardPower {get {return _cardPower;} set {_cardPower = value;}}
     public int CardToughness {get {return _cardToughness;} set {_cardToughness = value;}}
@@ -98,7 +102,7 @@ public class CardData
 					int i = 0;
 					foreach (var cost in costs)
 					{
-						card._cardCost[i] = int.Parse(region.Attribute("value")?.Value ?? "0");
+						card._cardCost[i] = int.Parse(cost.Attribute("value")?.Value ?? "0");
 						//this could also have an attribute akin to color that could be set here
 						i++;
 					}
