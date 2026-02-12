@@ -13,6 +13,12 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin cards/base.xml
+/copy:cards/base.xml
+
+#begin decks/base.xml
+/copy:decks/base.xml
+
 #begin sprites/base_card_temp.png
 /importer:TextureImporter
 /processor:TextureProcessor

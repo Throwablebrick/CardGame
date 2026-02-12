@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Deck>
+	<Cards>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+		<Card>cards/base.xml</Card>
+	</Cards>
+</Deck>

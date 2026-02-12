@@ -24,7 +24,7 @@ public class CardData
     private int _cardToughness;
     private int _cardNumberOfZoneChanges;
     private Sprite _cardSprite;
-    public int[] _cardCost; //might change to a list, but I think we want some sort of multi-container to allow for multiple different cost types which we can identify by index
+    private int[] _cardCost; //might change to a list, but I think we want some sort of multi-container to allow for multiple different cost types which we can identify by index
     
     //CardData properties
     public string CardName {get{return _cardName;} set {_cardName = value;}}
@@ -36,6 +36,8 @@ public class CardData
     public int CardNumberOfZoneChanges {get {return _cardNumberOfZoneChanges;} set {_cardNumberOfZoneChanges = value;}}
     public Sprite CardSprite {get {return _cardSprite;} set {_cardSprite = value;}}
     public int[] CardCost {get {return _cardCost;} set {_cardCost = value;}}
+	public float Width => _cardSprite.Width;
+	public float Height => _cardSprite.Height;
 
     //CardData constructors
     public CardData(string cardName, string cardType, string cardDescriptionText, /*string cardDescriptionCode,*/ int cardPower, int cardToughness, int cardNumberOfZoneChanges, Sprite cardSprite, int[] cardCost)
@@ -69,6 +71,11 @@ public class CardData
 		_cardCost = new int[1]; //change to whatever the max number of kinds of costs there are, 1 for now.
 	}
 
+	public void Draw(SpriteBatch spriteBatch, Vector2 position)
+	{
+		_cardSprite.Draw(spriteBatch, position);
+	}
+
 	public static CardData FromFile(ContentManager content, string fileName)
 	{
 		CardData card = new CardData();
@@ -85,8 +92,12 @@ public class CardData
 				string spritePath = root.Element("SpritePath").Value;
 				string spriteName = root.Element("SpriteName").Value;
 
+				float scaleX = float.Parse(root.Element("Scale").Attribute("x").Value ?? "4.0");
+				float scaleY = float.Parse(root.Element("Scale").Attribute("y").Value ?? "4.0");
+
 				//ToDo make sprite constructor work like this
 				card.CardSprite = new Sprite(content, spritePath, spriteName);
+				card.CardSprite.Scale = new Vector2(scaleX, scaleY);
 
 				card.CardName = root.Element("Name").Value;
 				card.CardType = root.Element("Type").Value;
@@ -102,7 +113,7 @@ public class CardData
 					int i = 0;
 					foreach (var cost in costs)
 					{
-						card._cardCost[i] = int.Parse(cost.Attribute("value")?.Value ?? "0");
+						card.CardCost[i] = int.Parse(cost.Attribute("value")?.Value ?? "0");
 						//this could also have an attribute akin to color that could be set here
 						i++;
 					}
