@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGameLibrary.Graphics;
@@ -18,7 +19,7 @@ public class Sprite
 	public Sprite() { }
 	public Sprite(ContentManager content, string path, string name)
 	{
-		TextureAtlas() temp = TextureAtlas.FromFile(content, path);
+		TextureAtlas temp = TextureAtlas.FromFile(content, path);
 		Region = temp.GetRegion(name);
 	}
 	public Sprite(TextureRegion region)
