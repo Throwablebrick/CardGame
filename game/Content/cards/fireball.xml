@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardData>
+	<SpritePath>sprites/card.xml</SpritePath>
+	<SpriteName>Fireball Card</SpriteName>
+	<Scale x="4.0" y="4.0"/>
+	<Name>Fireball</Name>
+	<Type>Spell</Type>
+	<Text>Deal 1 damage to any target.</Text>
+	<Power>0</Power>
+	<Toughness>0</Toughness>
+	<ZoneChanges>0</ZoneChanges>
+	<Costs>
+		<Cost value="2" element="mana"/>
+	</Costs>
+</CardData>
