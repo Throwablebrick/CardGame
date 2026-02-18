@@ -16,6 +16,9 @@
 #begin cards/base.xml
 /copy:cards/base.xml
 
+#begin cards/fireball.xml
+/copy:cards/fireball.xml
+
 #begin decks/base.xml
 /copy:decks/base.xml
 

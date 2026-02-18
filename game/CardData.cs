@@ -68,7 +68,7 @@ public class CardData
 	{
 		//this should only really be called by the FromFile method unless you want to manually set values yourself
 		//like in the coresponding constructor for TextureAtlas which this approach is coppied from with the FromFile method
-		_cardCost = new int[1]; //change to whatever the max number of kinds of costs there are, 1 for now.
+		_cardCost = new int[2]; //change to whatever the max number of kinds of costs there are, 1 for now.
 	}
 
 	public void Draw(SpriteBatch spriteBatch, Vector2 position)
