@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardData>
+	<SpritePath>sprites/card.xml</SpritePath>
+	<SpriteName>0</SpriteName>
+	<Scale x="4.0" y="4.0"/>
+	<Name>Nux'ti cultist</Name>
+	<Type>creature</Type>
+	<Text>Whenever an effect would resolve something involving the power of this creature, resolve that effect using its toughness instead.</Text>
+	<Power>0</Power>
+	<Toughness>4</Toughness>
+	<ZoneChanges>1</ZoneChanges>
+	<Costs>
+		<Cost value="3" element="mana"/>
+	</Costs>
+</CardData>
