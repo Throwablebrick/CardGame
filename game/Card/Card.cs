@@ -12,7 +12,7 @@ using MonoGameLibrary.Input;
 using MonoGameLibrary.Scenes;
 
 namespace CardGame;
-public class CardData
+public class Card
 {
 
     //CardData fields
@@ -20,9 +20,6 @@ public class CardData
     private string _cardType; //Might consider changing this to a integer with an enum for int to string translations, also might consider if we want to make this an array or list to allow for multiple types
     private string _cardDescriptionText;
     //private string _cardDescriptionCode; Thinking about making this a list of strings for the different hashs if we decide to go with that. For now ill leave this commented out until we figure it out.
-    private int _cardPower;
-    private int _cardToughness;
-    private int _cardNumberOfZoneChanges;
     private Sprite _cardSprite;
     private int[] _cardCost; //might change to a list, but I think we want some sort of multi-container to allow for multiple different cost types which we can identify by index
     
@@ -31,40 +28,34 @@ public class CardData
     public string CardType {get {return _cardType;} set {_cardType = value;}}
     public string CardDescriptionText {get {return _cardDescriptionText;} set {_cardDescriptionText = value;} /*set {_cardDescriptionText = value;} Might make it so that the value can be changed depending on how we want to implement card on card interaction UI*/}
     //public string CardDescriptionCode
-    public int CardPower {get {return _cardPower;} set {_cardPower = value;}}
-    public int CardToughness {get {return _cardToughness;} set {_cardToughness = value;}}
-    public int CardNumberOfZoneChanges {get {return _cardNumberOfZoneChanges;} set {_cardNumberOfZoneChanges = value;}}
-    public Sprite CardSprite {get {return _cardSprite;} set {_cardSprite = value;}}
     public int[] CardCost {get {return _cardCost;} set {_cardCost = value;}}
+
+    public Sprite CardSprite {get {return _cardSprite;} set {_cardSprite = value;}}
 	public float Width => _cardSprite.Width;
 	public float Height => _cardSprite.Height;
 
+	public Effect OnPlay;
+
     //CardData constructors
-    public CardData(string cardName, string cardType, string cardDescriptionText, /*string cardDescriptionCode,*/ int cardPower, int cardToughness, int cardNumberOfZoneChanges, Sprite cardSprite, int[] cardCost)
+    public Card(string cardName, string cardType, string cardDescriptionText, /*string cardDescriptionCode,*/ Sprite cardSprite, int[] cardCost)
     {
         _cardName = cardName;
         _cardType = cardType;
         _cardDescriptionText = cardDescriptionText;
         //_cardDescriptionCode = cardDescriptionCode;
-        _cardPower = cardPower;
-        _cardToughness = cardToughness;
-        _cardNumberOfZoneChanges = cardNumberOfZoneChanges;
         _cardSprite = cardSprite;
         _cardCost = cardCost;
     }
-    public CardData(CardData cardData)
+    public Card(Card cardData)
     {
         _cardName = cardData.CardName;
         _cardType = cardData.CardType;
         _cardDescriptionText = cardData.CardDescriptionText;
         //_cardDescriptionCode = cardData.CardDescriptionCode;
-        _cardPower = cardData.CardPower;
-        _cardToughness = cardData.CardToughness;
-        _cardNumberOfZoneChanges = cardData.CardNumberOfZoneChanges;
         _cardSprite = cardData.CardSprite;
         _cardCost = cardData.CardCost;
     }
-	public CardData()
+	public Card()
 	{
 		//this should only really be called by the FromFile method unless you want to manually set values yourself
 		//like in the coresponding constructor for TextureAtlas which this approach is coppied from with the FromFile method
@@ -76,9 +67,14 @@ public class CardData
 		_cardSprite.Draw(spriteBatch, position);
 	}
 
-	public static CardData FromFile(ContentManager content, string fileName)
+	public void Play(CardScene state)
 	{
-		CardData card = new CardData();
+		OnPlay.Affect(state);
+	}
+
+	public static Card FromFile(ContentManager content, string fileName)
+	{
+		Card card = new Card();
 
 		string filePath = Path.Combine(content.RootDirectory, fileName);
 
@@ -102,9 +98,6 @@ public class CardData
 				card.CardName = root.Element("Name").Value;
 				card.CardType = root.Element("Type").Value;
 				card.CardDescriptionText = root.Element("Text").Value;
-				card.CardPower = int.Parse(root.Element("Power").Value ?? "0");
-				card.CardToughness = int.Parse(root.Element("Toughness").Value ?? "0");
-				card.CardNumberOfZoneChanges = int.Parse(root.Element("ZoneChanges").Value ?? "0");
 
 				var costs = root.Element("Costs")?.Elements("Cost");
 
@@ -118,6 +111,8 @@ public class CardData
 						i++;
 					}
 				}
+
+				OnPlay = new Effect(root.Element("OnPlay"));
 
 				return card;
 			}
