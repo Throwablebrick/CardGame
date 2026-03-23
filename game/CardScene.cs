@@ -16,14 +16,14 @@ namespace CardGame;
 
 public class CardScene : Scene
 {
-	private List<CardData> _hand;
+	private List<Card> _hand;
 	private Sprite _zone;
 	private List<string> _deck; //eventually will probably be a list of some struct containing things like card level etc but for now it's just the path to the file that defines the card
 	private Random rand;
 	
 	public override void Initialize()
 	{
-		_hand = new List<CardData>();
+		_hand = new List<Card>();
 		_deck = new List<string>();
 		rand = new Random();
 		base.Initialize();
