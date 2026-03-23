@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardData>
+	<SpritePath>sprites/card.xml</SpritePath>
+	<SpriteName>0</SpriteName>
+	<Scale x="4.0" y="4.0"/>
+	<Name>Fortitude Emulator</Name>
+	<Type>Emblem</Type>
+	<Text>Whenever a creature you control is moved into the defense zone, that cerature gets +0/+4 until end of turn</Text>
+	<AttackPower>-1</AttackPower>
+	<Life>-1</Life>
+	<ZoneChanges>-1</ZoneChanges>
+	<Costs>
+		<Cost value="3" element="Mana"/>
+	</Costs>
+</CardData>

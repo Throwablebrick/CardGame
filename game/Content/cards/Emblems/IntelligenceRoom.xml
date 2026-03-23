@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardData>
+	<SpritePath>sprites/card.xml</SpritePath>
+	<SpriteName>0</SpriteName>
+	<Scale x="4.0" y="4.0"/>
+	<Name>Intelligence Room</Name>
+	<Type>Emblem</Type>
+	<Text>Whenever you draw a card, target creatures gets +1/+0 until end of turn</Text>
+	<AttackPower>-1</AttackPower>
+	<Life>-1</Life>
+	<ZoneChanges>-1</ZoneChanges>
+	<Costs>
+		<Cost value="1" element="Mana"/>
+	</Costs>
+</CardData>
