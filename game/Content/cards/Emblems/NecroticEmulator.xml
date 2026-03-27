@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardData>
+	<SpritePath>sprites/card.xml</SpritePath>
+	<SpriteName>0</SpriteName>
+	<Scale x="4.0" y="4.0"/>
+	<Name>Necrotic Emulator</Name>
+	<Type>Emblem</Type>
+	<Text>If any creature were to die, you may instead pay 4 energy to prevent its death</Text>
+	<AttackPower>-1</AttackPower>
+	<Life>-1</Life>
+	<ZoneChanges>-1</ZoneChanges>
+	<Costs>
+		<Cost value="1" element="Mana"/>
+	</Costs>
+</CardData>

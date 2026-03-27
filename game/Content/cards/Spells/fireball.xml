@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CardData>
 	<SpritePath>sprites/card.xml</SpritePath>
-	<SpriteName>Fireball Card</SpriteName>
+	<SpriteName>0</SpriteName>
 	<Scale x="4.0" y="4.0"/>
 	<Name>Fireball</Name>
 	<Type>Spell</Type>

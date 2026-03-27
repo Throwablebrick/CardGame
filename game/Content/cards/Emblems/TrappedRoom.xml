@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardData>
+	<SpritePath>sprites/card.xml</SpritePath>
+	<SpriteName>0</SpriteName>
+	<Scale x="4.0" y="4.0"/>
+	<Name>Trapped Room</Name>
+	<Type>Emblem</Type>
+	<Text>When Trapped Room enters the battlefield, choose a zone. Whenever a creature you don't control enters or leaves the chosen zone, deal 1 damage to that creatures controller</Text>
+	<AttackPower>-1</AttackPower>
+	<Life>-1</Life>
+	<ZoneChanges>-1</ZoneChanges>
+	<Costs>
+		<Cost value="5" element="Mana"/>
+	</Costs>
+</CardData>

@@ -3,12 +3,12 @@
 	<SpritePath>sprites/card.xml</SpritePath>
 	<SpriteName>0</SpriteName>
 	<Scale x="4.0" y="4.0"/>
-	<Name>Nux'Ti Cultist</Name>
-	<Type>Creature</Type>
-	<Text></Text>
-	<AttackPower>0</AttackPower>
-	<Life>5</Life>
-	<ZoneChanges>1</ZoneChanges>
+	<Name>InstabilityEmulator</Name>
+	<Type>Emblem</Type>
+	<Text>Whenever a creature you control dies, target player mills 1 card</Text>
+	<AttackPower>-1</AttackPower>
+	<Life>-1</Life>
+	<ZoneChanges>-1</ZoneChanges>
 	<Costs>
 		<Cost value="2" element="Mana"/>
 	</Costs>

@@ -3,13 +3,13 @@
 	<SpritePath>sprites/card.xml</SpritePath>
 	<SpriteName>0</SpriteName>
 	<Scale x="4.0" y="4.0"/>
-	<Name>Nux'ti, reality bender</Name>
-	<Type>creature</Type>
-	<Text>Whenever an effect would resolve something involving the power of any creature you control, resolve that effect using its toughness instead.</Text>
-	<Power>0</Power>
-	<Toughness>5</Toughness>
+	<Name>Nux'Ti: Reality Bender</Name>
+	<Type>Creature</Type>
+	<Text>Creatures you control deal attack power with their life rather than their attack power</Text>
+	<AttackPower>0</AttackPower>
+	<Life>5</Life>
 	<ZoneChanges>1</ZoneChanges>
 	<Costs>
-		<Cost value="8" element="mana"/>
+		<Cost value="6" element="Mana"/>
 	</Costs>
 </CardData>

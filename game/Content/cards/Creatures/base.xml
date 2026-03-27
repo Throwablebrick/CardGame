@@ -4,12 +4,12 @@
 	<SpriteName>0</SpriteName>
 	<Scale x="4.0" y="4.0"/>
 	<Name>Test</Name>
-	<Type>creature</Type>
+	<Type>Creature</Type>
 	<Text>Hey! I'm a card. I sure do have text on me. Wowie, so much text. How much text should be on a card? Only one way to test it.</Text>
-	<Power>2</Power>
-	<Toughness>4</Toughness>
+	<AttackPower>2</AttackPower>
+	<Life>4</Life>
 	<ZoneChanges>2</ZoneChanges>
 	<Costs>
-		<Cost value="3" element="normal"/>
+		<Cost value="3" element="Normal"/>
 	</Costs>
 </CardData>
