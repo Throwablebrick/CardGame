@@ -3,13 +3,13 @@
 	<SpritePath>sprites/card.xml</SpritePath>
 	<SpriteName>0</SpriteName>
 	<Scale x="4.0" y="4.0"/>
-	<Name>Fireball</Name>
+	<Name>Manipulate the Future</Name>
 	<Type>Spell</Type>
-	<Text>Deal 1 damage to any target</Text>
+	<Text>Look at the top 3 cards of your library and put them back in any order</Text>
 	<AttackPower>-1</AttackPower>
 	<Life>-1</Life>
 	<ZoneChanges>-1</ZoneChanges>
 	<Costs>
-		<Cost value="1" element="Mana"/>
+		<Cost value="2" element="Mana"/>
 	</Costs>
 </CardData>

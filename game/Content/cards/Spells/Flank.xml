@@ -3,13 +3,13 @@
 	<SpritePath>sprites/card.xml</SpritePath>
 	<SpriteName>0</SpriteName>
 	<Scale x="4.0" y="4.0"/>
-	<Name>Fireball</Name>
+	<Name>Flank</Name>
 	<Type>Spell</Type>
-	<Text>Deal 1 damage to any target</Text>
+	<Text>Destroy 2 different target creatures in the defense zone</Text>
 	<AttackPower>-1</AttackPower>
 	<Life>-1</Life>
 	<ZoneChanges>-1</ZoneChanges>
 	<Costs>
-		<Cost value="1" element="Mana"/>
+		<Cost value="4" element="Mana"/>
 	</Costs>
 </CardData>

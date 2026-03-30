@@ -3,9 +3,9 @@
 	<SpritePath>sprites/card.xml</SpritePath>
 	<SpriteName>0</SpriteName>
 	<Scale x="4.0" y="4.0"/>
-	<Name>Fireball</Name>
+	<Name>Insight</Name>
 	<Type>Spell</Type>
-	<Text>Deal 1 damage to any target</Text>
+	<Text>Draw 1 card</Text>
 	<AttackPower>-1</AttackPower>
 	<Life>-1</Life>
 	<ZoneChanges>-1</ZoneChanges>
