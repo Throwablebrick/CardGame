@@ -16,15 +16,14 @@ namespace CardGame;
 
 public class CardScene : Scene
 {
-	private List<Card> _hand;
 	private Sprite _zone;
-	private List<string> _deck; //eventually will probably be a list of some struct containing things like card level etc but for now it's just the path to the file that defines the card
 	private Random rand;
+
+	public Player Player1;
+	public Player Player2;
 	
 	public override void Initialize()
 	{
-		_hand = new List<Card>();
-		_deck = new List<string>();
 		rand = new Random();
 		base.Initialize();
 	}
@@ -62,30 +61,6 @@ public class CardScene : Scene
 		Core.SpriteBatch.End();
 
 		base.Draw(gameTime);
-	}
-
-	private void LoadDeckFromFile(ContentManager content, string fileName, List<string> deck)
-	{
-		string filePath = Path.Combine(content.RootDirectory, fileName);
-
-		using (Stream stream = TitleContainer.OpenStream(filePath))
-		{
-			using (XmlReader reader = XmlReader.Create(stream))
-			{
-				XDocument doc = XDocument.Load(reader);
-				XElement root = doc.Root;
-
-				var cards = root.Element("Cards")?.Elements("Card");
-
-				if (cards != null)
-				{
-					foreach (var card in cards)
-					{
-						deck.Add(card.Value);
-					}
-				}
-			}
-		}
 	}
 
 	private CardData DrawCard()

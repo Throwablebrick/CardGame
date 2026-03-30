@@ -1,3 +1,1 @@
-TargetPlayer class and how to differentiate players and the instantiation for TargetPlayer in Draw.cs with a Resolve method that takes the scene as an argument can resolve to a player dynamically or a set player, implimentation dependent
 Number class with a Resolve method that takes the scene as an argument could be inherited so as to find things out like a creatures power or number of cards drawn this turn etc
-Player class that has things like a deck, hand, and arrays/lists that have the cards in play under their controll
