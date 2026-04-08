@@ -16,6 +16,7 @@ namespace CardGame;
 
 public class CardScene : Scene
 {
+	public bool NeedInput;
 	private Sprite _zone;
 	private Random rand;
 
@@ -46,6 +47,12 @@ public class CardScene : Scene
 
 	public override void Update(GameTime gameTime)
 	{
+		if (Core.Input.Mouse.WasButtonJustPressed(MouseButton.Left))
+		{
+			if (NeedInput)
+			{
+			}
+		}
 		base.Update(gameTime);
 	}
 
@@ -63,11 +70,7 @@ public class CardScene : Scene
 		base.Draw(gameTime);
 	}
 
-	private CardData DrawCard()
+	public Card ClickCard()
 	{
-		int ind = rand.Next(_deck.Count);
-		string path = _deck[ind];
-		_deck.RemoveAt(ind);
-		return CardData.FromFile(Content, path);
 	}
 }
