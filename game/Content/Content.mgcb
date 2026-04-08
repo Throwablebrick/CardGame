@@ -13,11 +13,227 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin cards/base.xml
-/copy:cards/base.xml
+#begin cards/Creatures/base.xml
+/copy:cards/Creatures/base.xml
 
-#begin cards/fireball.xml
-/copy:cards/fireball.xml
+#begin cards/Creatures/NuxtiCultist.xml
+/copy:cards/Creatures/NuxtiCultist.xml
+
+#begin cards/Creatures/NuxtiRealityBender.xml
+/copy:cards/Creatures/NuxtiRealityBender.xml
+
+#begin cards/Creatures/NuxtiUnchained.xml
+/copy:cards/Creatures/NuxtiUnchained.xml
+
+#begin cards/Emblems/ChaoticEmulator.xml
+/copy:cards/Emblems/ChaoticEmulator.xml
+
+#begin cards/Emblems/CorruptedEmulator.xml
+/copy:cards/Emblems/CorruptedEmulator.xml
+
+#begin cards/Emblems/ElectricRod.xml
+/copy:cards/Emblems/ElectricRod.xml
+
+#begin cards/Emblems/EmpowerRune.xml
+/copy:cards/Emblems/EmpowerRune.xml
+
+#begin cards/Emblems/ForesightEmulator.xml
+/copy:cards/Emblems/ForesightEmulator.xml
+
+#begin cards/Emblems/FortitudeEmulator.xml
+/copy:cards/Emblems/FortitudeEmulator.xml
+
+#begin cards/Emblems/Fortress.xml
+/copy:cards/Emblems/Fortress.xml
+
+#begin cards/Emblems/FountainOfHealing.xml
+/copy:cards/Emblems/FountainOfHealing.xml
+
+#begin cards/Emblems/FreeWillEmulator.xml
+/copy:cards/Emblems/FreeWillEmulator.xml
+
+#begin cards/Emblems/InspirationalBanner.xml
+/copy:cards/Emblems/InspirationalBanner.xml
+
+#begin cards/Emblems/InstabilityEmulator.xml
+/copy:cards/Emblems/InstabilityEmulator.xml
+
+#begin cards/Emblems/InstinctEmulator.xml
+/copy:cards/Emblems/InstinctEmulator.xml
+
+#begin cards/Emblems/IntelligenceRoom.xml
+/copy:cards/Emblems/IntelligenceRoom.xml
+
+#begin cards/Emblems/MagicSuppressingRoom.xml
+/copy:cards/Emblems/MagicSuppressingRoom.xml
+
+#begin cards/Emblems/ManaGem.xml
+/copy:cards/Emblems/ManaGem.xml
+
+#begin cards/Emblems/Map.xml
+/copy:cards/Emblems/Map.xml
+
+#begin cards/Emblems/NecroticEmulator.xml
+/copy:cards/Emblems/NecroticEmulator.xml
+
+#begin cards/Emblems/SyphoningEmulator.xml
+/copy:cards/Emblems/SyphoningEmulator.xml
+
+#begin cards/Emblems/TrappedRoom.xml
+/copy:cards/Emblems/TrappedRoom.xml
+
+#begin cards/Emblems/WisdomEmulator.xml
+/copy:cards/Emblems/WisdomEmulator.xml
+
+#begin cards/Spells/Ambush.xml
+/copy:cards/Spells/Ambush.xml
+
+#begin cards/Spells/ApplyInvulnerability.xml
+/copy:cards/Spells/ApplyInvulnerability.xml
+
+#begin cards/Spells/ArrangeReplacement.xml
+/copy:cards/Spells/ArrangeReplacement.xml
+
+#begin cards/Spells/AvoidFate.xml
+/copy:cards/Spells/AvoidFate.xml
+
+#begin cards/Spells/CallToAction.xml
+/copy:cards/Spells/CallToAction.xml
+
+#begin cards/Spells/ChaoticLightning.xml
+/copy:cards/Spells/ChaoticLightning.xml
+
+#begin cards/Spells/Confusion.xml
+/copy:cards/Spells/Confusion.xml
+
+#begin cards/Spells/Counterspell.xml
+/copy:cards/Spells/Counterspell.xml
+
+#begin cards/Spells/CreatureDuel.xml
+/copy:cards/Spells/CreatureDuel.xml
+
+#begin cards/Spells/DealOfDiscord.xml
+/copy:cards/Spells/DealOfDiscord.xml
+
+#begin cards/Spells/DemonicDeal.xml
+/copy:cards/Spells/DemonicDeal.xml
+
+#begin cards/Spells/DenyPassage.xml
+/copy:cards/Spells/DenyPassage.xml
+
+#begin cards/Spells/DestroyCreature.xml
+/copy:cards/Spells/DestroyCreature.xml
+
+#begin cards/Spells/DestroyEmblem.xml
+/copy:cards/Spells/DestroyEmblem.xml
+
+#begin cards/Spells/DoubleStrength.xml
+/copy:cards/Spells/DoubleStrength.xml
+
+#begin cards/Spells/DoubleVitality.xml
+/copy:cards/Spells/DoubleVitality.xml
+
+#begin cards/Spells/EnhanceSpeed.xml
+/copy:cards/Spells/EnhanceSpeed.xml
+
+#begin cards/Spells/EnhanceStrength.xml
+/copy:cards/Spells/EnhanceStrength.xml
+
+#begin cards/Spells/EnhanceVitality.xml
+/copy:cards/Spells/EnhanceVitality.xml
+
+#begin cards/Spells/fireball.xml
+/copy:cards/Spells/fireball.xml
+
+#begin cards/Spells/Flank.xml
+/copy:cards/Spells/Flank.xml
+
+#begin cards/Spells/GetLost.xml
+/copy:cards/Spells/GetLost.xml
+
+#begin cards/Spells/GraftMagic.xml
+/copy:cards/Spells/GraftMagic.xml
+
+#begin cards/Spells/HealCreature.xml
+/copy:cards/Spells/HealCreature.xml
+
+#begin cards/Spells/HoldForRansom.xml
+/copy:cards/Spells/HoldForRansom.xml
+
+#begin cards/Spells/InsidiousPropaganda.xml
+/copy:cards/Spells/InsidiousPropaganda.xml
+
+#begin cards/Spells/Insight.xml
+/copy:cards/Spells/Insight.xml
+
+#begin cards/Spells/MakePreparations.xml
+/copy:cards/Spells/MakePreparations.xml
+
+#begin cards/Spells/Manabolt.xml
+/copy:cards/Spells/Manabolt.xml
+
+#begin cards/Spells/ManipulateTheFuture.xml
+/copy:cards/Spells/ManipulateTheFuture.xml
+
+#begin cards/Spells/Meditate.xml
+/copy:cards/Spells/Meditate.xml
+
+#begin cards/Spells/MindTwister.xml
+/copy:cards/Spells/MindTwister.xml
+
+#begin cards/Spells/MindWarp.xml
+/copy:cards/Spells/MindWarp.xml
+
+#begin cards/Spells/NecroticWound.xml
+/copy:cards/Spells/NecroticWound.xml
+
+#begin cards/Spells/Nullify.xml
+/copy:cards/Spells/Nullify.xml
+
+#begin cards/Spells/Pacify.xml
+/copy:cards/Spells/Pacify.xml
+
+#begin cards/Spells/PhaseShift.xml
+/copy:cards/Spells/PhaseShift.xml
+
+#begin cards/Spells/Relocate.xml
+/copy:cards/Spells/Relocate.xml
+
+#begin cards/Spells/Repel.xml
+/copy:cards/Spells/Repel.xml
+
+#begin cards/Spells/Rerally.xml
+/copy:cards/Spells/Rerally.xml
+
+#begin cards/Spells/Rest.xml
+/copy:cards/Spells/Rest.xml
+
+#begin cards/Spells/ReturnCard.xml
+/copy:cards/Spells/ReturnCard.xml
+
+#begin cards/Spells/ReturnEmblem.xml
+/copy:cards/Spells/ReturnEmblem.xml
+
+#begin cards/Spells/ReversalOfNature.xml
+/copy:cards/Spells/ReversalOfNature.xml
+
+#begin cards/Spells/SacrificialBlast.xml
+/copy:cards/Spells/SacrificialBlast.xml
+
+#begin cards/Spells/SpeakWithTheDead.xml
+/copy:cards/Spells/SpeakWithTheDead.xml
+
+#begin cards/Spells/SummonMana.xml
+/copy:cards/Spells/SummonMana.xml
+
+#begin cards/Spells/SwapZones.xml
+/copy:cards/Spells/SwapZones.xml
+
+#begin cards/Spells/SyphonSpell.xml
+/copy:cards/Spells/SyphonSpell.xml
+
+#begin cards/Spells/Weaken.xml
+/copy:cards/Spells/Weaken.xml
 
 #begin decks/base.xml
 /copy:decks/base.xml
