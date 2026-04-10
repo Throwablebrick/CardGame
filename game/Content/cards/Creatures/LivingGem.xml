@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardData>
+	<SpritePath>sprites/card.xml</SpritePath>
+	<SpriteName>0</SpriteName>
+	<Scale x="4.0" y="4.0"/>
+	<Name>Living Gem</Name>
+	<Type>Creature</Type>
+	<Text>When this creature dies, its controller gains +3 mana at their next upkeep</Text>
+	<AttackPower>2</AttackPower>
+	<Life>3</Life>
+	<ZoneChanges>1</ZoneChanges>
+	<Costs>
+		<Cost value="2" element="Mana"/>
+	</Costs>
+</CardData>
