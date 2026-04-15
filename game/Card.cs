@@ -71,7 +71,7 @@ public class Card
 	{
 		//wait for counterspells
 		//make this add trigered abilities to the trigger list
-		OnPlay.Affect(state);//actually add this to the stack and it will call it when it needs to
+		state.stack.Push(OnPlay);
 	}
 
 	public static Card FromFile(ContentManager content, string fileName)

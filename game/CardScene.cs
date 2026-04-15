@@ -22,6 +22,8 @@ public class CardScene : Scene
 
 	public Player Player1;
 	public Player Player2;
+
+	public Stack<Effect> stack;
 	
 	public override void Initialize()
 	{
@@ -51,6 +53,7 @@ public class CardScene : Scene
 		{
 			if (NeedInput)
 			{
+				//under construction
 			}
 		}
 		base.Update(gameTime);
@@ -72,5 +75,6 @@ public class CardScene : Scene
 
 	public Card ClickCard()
 	{
+		//under construction
 	}
 }

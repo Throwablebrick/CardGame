@@ -8,6 +8,9 @@ class Effect
 	virtual void Affect(CardScene scene)
 	{
 	}
+	virtual bool Ready(CardScene scene)
+	{
+	}
 
 	static Effect FromFile(XElement root)
 	{
