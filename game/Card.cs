@@ -22,6 +22,7 @@ public class Card
     //private string _cardDescriptionCode; Thinking about making this a list of strings for the different hashs if we decide to go with that. For now ill leave this commented out until we figure it out.
     private Sprite _cardSprite;
     private int[] _cardCost; //might change to a list, but I think we want some sort of multi-container to allow for multiple different cost types which we can identify by index
+	public Rectangle Hitbox;
     
     //CardData properties
     public string CardName {get{return _cardName;} set {_cardName = value;}}

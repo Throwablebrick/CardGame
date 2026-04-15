@@ -1,8 +1,9 @@
 namespace CardGame;
 
-public class TargetPlayer
+public class Target
 {
-	public string Value;
+	public bool Found;
+
 	public virtual bool Resolve(CardScene scene)
 	{
 	}

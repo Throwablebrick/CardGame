@@ -17,14 +17,14 @@ public Draw : Effect
 	{
 		if (Target == "Player1")
 		{
-			scene.Player1.Draw(Amount.Resolve(scene));
+			scene.Player1.Draw(Amount.Value);
 		} else if (Target == "Player2")
 		{
-			scene.Player2.Draw(Amount.Resolve(scene));
+			scene.Player2.Draw(Amount.Value);
 		}
 	}
 	override bool Ready(CardScene scene)
 	{
-		a
+		return Amount.Resolve(scene) && Target.Resolve(scene);
 	}
 }

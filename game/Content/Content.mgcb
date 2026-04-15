@@ -13,17 +13,184 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin cards/Creatures/AdaptableElemental.xml
+/copy:cards/Creatures/AdaptableElemental.xml
+
+#begin cards/Creatures/AnimateDummy.xml
+/copy:cards/Creatures/AnimateDummy.xml
+
 #begin cards/Creatures/base.xml
 /copy:cards/Creatures/base.xml
+
+#begin cards/Creatures/base.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:cards/Creatures/base.xml
+
+#begin cards/Creatures/BatteringRam.xml
+/copy:cards/Creatures/BatteringRam.xml
+
+#begin cards/Creatures/Beetle.xml
+/copy:cards/Creatures/Beetle.xml
+
+#begin cards/Creatures/BeetleGuard.xml
+/copy:cards/Creatures/BeetleGuard.xml
+
+#begin cards/Creatures/BeetleQueen.xml
+/copy:cards/Creatures/BeetleQueen.xml
+
+#begin cards/Creatures/BeetleWarrior.xml
+/copy:cards/Creatures/BeetleWarrior.xml
+
+#begin cards/Creatures/ChiefAkyum.xml
+/copy:cards/Creatures/ChiefAkyum.xml
+
+#begin cards/Creatures/CommutativeElemental.xml
+/copy:cards/Creatures/CommutativeElemental.xml
+
+#begin cards/Creatures/ConcoctfulAkyum.xml
+/copy:cards/Creatures/ConcoctfulAkyum.xml
+
+#begin cards/Creatures/ConstrictingFault.xml
+/copy:cards/Creatures/ConstrictingFault.xml
+
+#begin cards/Creatures/CowardlyHuman.xml
+/copy:cards/Creatures/CowardlyHuman.xml
+
+#begin cards/Creatures/CreatureOfTheDeep.xml
+/copy:cards/Creatures/CreatureOfTheDeep.xml
+
+#begin cards/Creatures/DrainingFault.xml
+/copy:cards/Creatures/DrainingFault.xml
+
+#begin cards/Creatures/EnchantedSwordAndShield.xml
+/copy:cards/Creatures/EnchantedSwordAndShield.xml
+
+#begin cards/Creatures/FaultSpawn.xml
+/copy:cards/Creatures/FaultSpawn.xml
+
+#begin cards/Creatures/FaultSpitter.xml
+/copy:cards/Creatures/FaultSpitter.xml
+
+#begin cards/Creatures/GrowingAmalgamation.xml
+/copy:cards/Creatures/GrowingAmalgamation.xml
+
+#begin cards/Creatures/Guard.xml
+/copy:cards/Creatures/Guard.xml
+
+#begin cards/Creatures/HumanFootstool.xml
+/copy:cards/Creatures/HumanFootstool.xml
+
+#begin cards/Creatures/ImmolatingAkyum.xml
+/copy:cards/Creatures/ImmolatingAkyum.xml
+
+#begin cards/Creatures/IncubationFault.xml
+/copy:cards/Creatures/IncubationFault.xml
+
+#begin cards/Creatures/Knight.xml
+/copy:cards/Creatures/Knight.xml
+
+#begin cards/Creatures/LivingBattery.xml
+/copy:cards/Creatures/LivingBattery.xml
+
+#begin cards/Creatures/LivingGem.xml
+/copy:cards/Creatures/LivingGem.xml
+
+#begin cards/Creatures/LivingHorror.xml
+/copy:cards/Creatures/LivingHorror.xml
+
+#begin cards/Creatures/Maggot.xml
+/copy:cards/Creatures/Maggot.xml
+
+#begin cards/Creatures/ManaElemental.xml
+/copy:cards/Creatures/ManaElemental.xml
+
+#begin cards/Creatures/Mermaid.xml
+/copy:cards/Creatures/Mermaid.xml
+
+#begin cards/Creatures/Mummy.xml
+/copy:cards/Creatures/Mummy.xml
+
+#begin cards/Creatures/Necromancer.xml
+/copy:cards/Creatures/Necromancer.xml
 
 #begin cards/Creatures/NuxtiCultist.xml
 /copy:cards/Creatures/NuxtiCultist.xml
 
+#begin cards/Creatures/NuxtiCultist.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:cards/Creatures/NuxtiCultist.xml
+
+#begin cards/Creatures/NuxTiMissionary.xml
+/copy:cards/Creatures/NuxTiMissionary.xml
+
+#begin cards/Creatures/NuxTiPriest.xml
+/copy:cards/Creatures/NuxTiPriest.xml
+
 #begin cards/Creatures/NuxtiRealityBender.xml
 /copy:cards/Creatures/NuxtiRealityBender.xml
 
+#begin cards/Creatures/NuxtiRealityBender.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:cards/Creatures/NuxtiRealityBender.xml
+
 #begin cards/Creatures/NuxtiUnchained.xml
 /copy:cards/Creatures/NuxtiUnchained.xml
+
+#begin cards/Creatures/NuxtiUnchained.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:cards/Creatures/NuxtiUnchained.xml
+
+#begin cards/Creatures/QuintessentialAmalgamation.xml
+/copy:cards/Creatures/QuintessentialAmalgamation.xml
+
+#begin cards/Creatures/RustyGolem.xml
+/copy:cards/Creatures/RustyGolem.xml
+
+#begin cards/Creatures/SeaSerpent.xml
+/copy:cards/Creatures/SeaSerpent.xml
+
+#begin cards/Creatures/Shark.xml
+/copy:cards/Creatures/Shark.xml
+
+#begin cards/Creatures/ShiftingElemental.xml
+/copy:cards/Creatures/ShiftingElemental.xml
+
+#begin cards/Creatures/SlimeElemental.xml
+/copy:cards/Creatures/SlimeElemental.xml
+
+#begin cards/Creatures/SmallBeetle.xml
+/copy:cards/Creatures/SmallBeetle.xml
+
+#begin cards/Creatures/Spelleater.xml
+/copy:cards/Creatures/Spelleater.xml
+
+#begin cards/Creatures/StimulatingAkyum.xml
+/copy:cards/Creatures/StimulatingAkyum.xml
+
+#begin cards/Creatures/SupportiveAkyum.xml
+/copy:cards/Creatures/SupportiveAkyum.xml
+
+#begin cards/Creatures/UndeadSorcerer.xml
+/copy:cards/Creatures/UndeadSorcerer.xml
+
+#begin cards/Creatures/Vampire.xml
+/copy:cards/Creatures/Vampire.xml
+
+#begin cards/Creatures/VolatileFault.xml
+/copy:cards/Creatures/VolatileFault.xml
+
+#begin cards/Creatures/WarAmalgamation.xml
+/copy:cards/Creatures/WarAmalgamation.xml
+
+#begin cards/Creatures/Whale.xml
+/copy:cards/Creatures/Whale.xml
+
+#begin cards/Creatures/Zombie.xml
+/copy:cards/Creatures/Zombie.xml
 
 #begin cards/Emblems/ChaoticEmulator.xml
 /copy:cards/Emblems/ChaoticEmulator.xml

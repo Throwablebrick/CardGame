@@ -4,22 +4,30 @@ namespace CardGame;
 
 public class Player
 {
-	public Player(ContentManager content, string deckPath)
+	public Player(ContentManager content, string deckPath, string name)
 	{
 		Energy = 20;
 		LoadDeckFromFile(content, deckPath);
+		Name = name;
 	}
-	public Player(ContentManager content, string deckPath, int evergy)
+	public Player(ContentManager content, string deckPath, int evergy, string name)
 	{
 		Energy = evergy;
 		LoadDeckFromFile(content, deckPath);
+		Name = name;
 	}
+
+	public string Name;
 
 	public int Mana;
 	public int Energy;
 
 	public List<Card> Deck;
 	public List<Card> Hand;
+
+	public List<Card> NuetralZone;
+	public List<Card> AttackZone;
+	public List<Card> DefenseZone;
 
 	public void Draw(int amount)
 	{

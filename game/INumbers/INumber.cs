@@ -1,9 +1,9 @@
-
 namespace CardGame;
 
 public class INumber 
 {
-	public virtual int Resolve(CardScene scene)
+	public int Value;
+	public virtual bool Resolve(CardScene scene)
 	{
 	}
 }
