@@ -3,31 +3,31 @@ using System.Collections.Generic;
 
 public class Stack<T>
 {
-	private List<T> _list;
+	private List<T> _stack;
 
 	public Stack()
 	{
-		_list = new List<T>();
+		_stack = new List<T>();
 	}
 
 	public void Push(T ob)
 	{
-		_list.Add(ob);
+		_stack.Add(ob);
 	}
 	public T Peek()
 	{
-		return _list[_list.Count()-1];
+		return _stack[_stack.Count()-1];
 	}
 	public void Pop()
 	{
-		_list.RemoveAt(_list.Count()-1);
+		_stack.RemoveAt(_stack.Count()-1);
 	}
 	public void Clear()
 	{
-		_list.Clear();
+		_stack.Clear();
 	}
 	public int Count()
 	{
-		return _list.Count();
+		return _stack.Count();
 	}
 }
