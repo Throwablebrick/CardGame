@@ -1,16 +1,28 @@
-public class CardIDTable
+public class FrequencyTable
 {
-    private string[] _hashTable = new string[65536];
-    private void InitializeHashTable()
+    private int[] _frequencyTable = new int[65536];
+    private void InitializeFrequencyTable()
     {
         int index = 0;
-        while (index < _hashTable.Length())
+        while (index < _frequencyTable.Length())
         {
-            _hashTable[index] = "";
+            _frequencyTable[index] = 0;
         }
     }
-    public CardIDTable()
+    public FrequencyTable()
     {
-        InitializeHashTable();
+        InitializeFrequencyTable();
+    }
+    public void FrequencyIncrement(string InstanceID)
+    {
+        string baseID = InstanceID[6] + InstanceID[7] + InstanceID[8] + InstanceID[10];
+        int index = Convert.ToInt64(baseID, 16);
+        _frequencyTable[index]++;
+    }
+    public void FrequencyDecrement(string InstanceID)
+    {
+        string baseID = InstanceID[6] + InstanceID[7] + InstanceID[8] + InstanceID[10];
+        int index = Convert.ToInt64(baseID, 16);
+        _frequencyTable[index]--;
     }
 }
