@@ -22,11 +22,6 @@
 #begin cards/Creatures/base.xml
 /copy:cards/Creatures/base.xml
 
-#begin cards/Creatures/base.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:cards/Creatures/base.xml
-
 #begin cards/Creatures/BatteringRam.xml
 /copy:cards/Creatures/BatteringRam.xml
 
@@ -117,11 +112,6 @@
 #begin cards/Creatures/NuxtiCultist.xml
 /copy:cards/Creatures/NuxtiCultist.xml
 
-#begin cards/Creatures/NuxtiCultist.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:cards/Creatures/NuxtiCultist.xml
-
 #begin cards/Creatures/NuxTiMissionary.xml
 /copy:cards/Creatures/NuxTiMissionary.xml
 
@@ -131,18 +121,8 @@
 #begin cards/Creatures/NuxtiRealityBender.xml
 /copy:cards/Creatures/NuxtiRealityBender.xml
 
-#begin cards/Creatures/NuxtiRealityBender.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:cards/Creatures/NuxtiRealityBender.xml
-
 #begin cards/Creatures/NuxtiUnchained.xml
 /copy:cards/Creatures/NuxtiUnchained.xml
-
-#begin cards/Creatures/NuxtiUnchained.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:cards/Creatures/NuxtiUnchained.xml
 
 #begin cards/Creatures/QuintessentialAmalgamation.xml
 /copy:cards/Creatures/QuintessentialAmalgamation.xml

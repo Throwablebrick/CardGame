@@ -1,6 +1,6 @@
 namespace CardGame;
 
-public TargetCreature : Target
+public class TargetCreature : Target
 {
 	public TargetZone Zone;
 

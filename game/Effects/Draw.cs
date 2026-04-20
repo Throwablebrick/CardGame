@@ -1,19 +1,22 @@
+using System.Xml;
+using System.Xml.Linq;
+
 namespace CardGame;
 
-public Draw : Effect
+public class Draw : Effect
 {
-	public Number Amount;
+	public INumber Amount;
 	public TargetPlayer Target;
 
 	public Draw(XElement number, XElement player)
 	{
-		Amount = Number.FromFile(number);
+		Amount = INumber.FromFile(number);
 		/*
 		 * under construction
 		Target = player.Name;
 		*/
 	}
-	override void Affect(CardScene scene)
+	public override void Affect(CardScene scene)
 	{
 		if (Target == "Player1")
 		{
@@ -23,7 +26,7 @@ public Draw : Effect
 			scene.Player2.Draw(Amount.Value);
 		}
 	}
-	override bool Ready(CardScene scene)
+	public override bool Ready(CardScene scene)
 	{
 		return Amount.Resolve(scene) && Target.Resolve(scene);
 	}

@@ -1,4 +1,10 @@
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Content;
+using MonoGameLibrary;
+using MonoGameLibrary.Scenes;
+using MonoGameLibrary.Graphics;
+
 
 namespace CardGame;
 

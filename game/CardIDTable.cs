@@ -1,10 +1,12 @@
+using System;
+
 public class FrequencyTable
 {
     private int[] _frequencyTable = new int[65536];
     private void InitializeFrequencyTable()
     {
         int index = 0;
-        while (index < _frequencyTable.Length())
+        while (index < _frequencyTable.Length)
         {
             _frequencyTable[index] = 0;
         }
@@ -15,7 +17,7 @@ public class FrequencyTable
     }
     public void FrequencyIncrement(string InstanceID)
     {
-        string baseID = InstanceID[6] + InstanceID[7] + InstanceID[8] + InstanceID[10];
+        string baseID = InstanceID[6].ToString() + InstanceID[7].ToString() + InstanceID[8].ToString() + InstanceID[10].ToString();
         int index = Convert.ToInt64(baseID, 16);
         _frequencyTable[index]++;
     }

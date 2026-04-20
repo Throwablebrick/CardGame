@@ -3,20 +3,20 @@ using System.Xml.Linq;
 
 namespace CardGame;
 
-class Effect
+public class Effect
 {
-	virtual void Affect(CardScene scene)
+	public virtual void Affect(CardScene scene)
 	{
 	}
-	virtual bool Ready(CardScene scene)
+	public virtual bool Ready(CardScene scene)
 	{
 	}
 
-	static Effect FromFile(XElement root)
+	public static Effect FromFile(XElement root)
 	{
 		if (root.Name == "example")
 		{
-			return example(root.Element("parameter 1"), root.Element("parameter 2"));
+			return Draw(root.Element("parameter 1"), root.Element("parameter 2"));
 		}
 	}
 }
