@@ -17,12 +17,12 @@ public class Card
 
     //CardData fields
     private string _cardName;
-    private string _cardType; //Might consider changing this to a integer with an enum for int to string translations, also might consider if we want to make this an array or list to allow for multiple types
+    private string _cardType;
     private string _cardDescriptionText;
-    //private string _cardDescriptionCode; Thinking about making this a list of strings for the different hashs if we decide to go with that. For now ill leave this commented out until we figure it out.
     private Sprite _cardSprite;
-    private int[] _cardCost; //might change to a list, but I think we want some sort of multi-container to allow for multiple different cost types which we can identify by index
-	public Rectangle Hitbox;
+    private int[] _cardCost;
+
+	public Rectangle Hitbox; //add default values
     
     //CardData properties
     public string CardName {get{return _cardName;} set {_cardName = value;}}
@@ -60,7 +60,7 @@ public class Card
 	{
 		//this should only really be called by the FromFile method unless you want to manually set values yourself
 		//like in the coresponding constructor for TextureAtlas which this approach is coppied from with the FromFile method
-		_cardCost = new int[2]; //change to whatever the max number of kinds of costs there are, 1 for now.
+		_cardCost = new int[2]; //change to whatever the max number of kinds of costs there are, 2 for now.
 	}
 
 	public void Draw(SpriteBatch spriteBatch, Vector2 position)
@@ -116,6 +116,11 @@ public class Card
 				}
 
 				OnPlay = new Effect(root.Element("OnPlay"));
+
+				if (card.CardType == "Creature" || card.CardType == "Emblem")
+				{
+					card = new Permanent(card, root);
+				}
 
 				return card;
 			}

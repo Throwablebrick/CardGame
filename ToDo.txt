@@ -1,6 +1,3 @@
-Number class with a Resolve method that takes the scene as an argument could be inherited so as to find things out like a creatures power or number of cards drawn this turn etc
-give cards ids
-write stack
 make a stack that has cards that need to be given a card
 when checking if you clicked a card, first check if the aforementioned stack contains any cards
-maybe give effects a ready method
+

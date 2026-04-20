@@ -25,9 +25,14 @@ public class Player
 	public List<Card> Deck;
 	public List<Card> Hand;
 
-	public List<Card> NuetralZone;
-	public List<Card> AttackZone;
-	public List<Card> DefenseZone;
+	public List<Permanent> NuetralZone;
+	public List<Permanent> AttackZone;
+	public List<Permanent> DefenseZone;
+
+	// add default sizes for these
+	public Rectangle NuetralRect;
+	public Rectangle AttackRect;
+	public Rectangle DefenseRect;
 
 	public void Draw(int amount)
 	{
