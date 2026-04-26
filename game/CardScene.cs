@@ -17,6 +17,8 @@ namespace CardGame;
 public class CardScene : Scene
 {
 	public bool NeedInput;
+	public Card Give;
+
 	private Sprite _zone;
 	private Random rand;
 
