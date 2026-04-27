@@ -81,4 +81,17 @@ public class Player
 		//call from the ClickedCard class
 		//check through all the cards in hand, and each zone and return the card whose Rectangle contains the point position
 	}
+	public bool IsWithin(string zone, int id)
+	{
+		List<Permanent> temp;
+		temp = zone == "Nuetral" ? NuetralZone : zone == "Attack" ? AttackZone : DefenseZone;
+		for (int i = 0; i<temp.Count; i++)
+		{
+			if (temp[i].ID == id)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

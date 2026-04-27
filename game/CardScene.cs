@@ -16,8 +16,17 @@ namespace CardGame;
 
 public class CardScene : Scene
 {
-	public bool NeedInput;
-	public Card Give;
+	public bool CardChoose;
+	public Card GiveCard;
+
+	public bool PermanentChoose;
+	public Permanent GivePermanent;
+
+	public bool PlayerChoose;
+	public string GivePlayer;
+
+	public bool ZoneChoose;
+	public string GiveZone;
 
 	private Sprite _zone;
 	private Random rand;
@@ -51,7 +60,7 @@ public class CardScene : Scene
 	{
 		if (Core.Input.Mouse.WasButtonJustPressed(MouseButton.Left))
 		{
-			if (NeedInput)
+			if (CardChoose)
 			{
 				//under construction
 			}
@@ -69,8 +78,17 @@ public class CardScene : Scene
 		base.Draw(gameTime);
 	}
 
-	public Card ClickCard()
+	public Card ClickPermanent(Point position)
 	{
-		//under construction
+	}
+	public string ClickZone(Point position)
+	{
+	}
+	public string ChoosePlayer(Point position)
+	{
+	}
+	public bool IsWithin(string zone, string player, int id)
+	{
+		return player == "Player1" ? Player1.IsWithin(zone, id) : player == "Player2" ? Player2.IsWithin(zone, id) : false;
 	}
 }

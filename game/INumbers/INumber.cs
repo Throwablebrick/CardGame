@@ -3,12 +3,10 @@ using System.Xml.Linq;
 
 namespace CardGame;
 
-public class INumber 
+public abstract class INumber 
 {
 	public int Value;
-	public virtual bool Resolve(CardScene scene)
-	{
-	}
+	public abstract bool Resolve(CardScene scene);
 	public static INumber FromFile(XElement element)
 	{
 	}

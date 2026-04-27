@@ -18,4 +18,6 @@ public class Permanent : Card
 	public Permanent(Card card) : base(card)
 	{
 	}
+
+	public static Permanent Null = new Permanent(Card.Null);
 }

@@ -22,7 +22,9 @@ public class Card
     private Sprite _cardSprite;
     private int[] _cardCost;
 
-	public Rectangle Hitbox; //add default values
+	public Rectangle Hitbox = new Rectangle(0,0,160,224); //add default values
+	public int X=0;
+	public int Y=0;
     
     //CardData properties
     public string CardName {get{return _cardName;} set {_cardName = value;}}
