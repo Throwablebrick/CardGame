@@ -43,6 +43,8 @@ public class Player
 	public Rectangle AttackRect;
 	public Rectangle DefenseRect;
 
+	public Rectangle Board;
+
 	public void Draw(int amount)
 	{
 		for (int i = 0; i<amount; i++)
@@ -76,10 +78,24 @@ public class Player
 		}
 	}
 
-	public Card ClickedOnWhat(Point position)
+	public string WhichZone(Point position)
 	{
-		//call from the ClickedCard class
-		//check through all the cards in hand, and each zone and return the card whose Rectangle contains the point position
+		return NuetralRect.Contains(position) ? "Nuetral" : AttackRect.Contains(position) ? "Attack" : DefenseRect.Contains(position) ? "Defense" : "null";
+	}
+	public Permanent WhichPermanent(Point position)
+	{
+		string zone = WhichZone(position);
+		List<Permanent> temp;
+		temp = zone == "Nuetral" ? NuetralZone : zone == "Attack" ? AttackZone : DefenseZone;
+		for (int i = 0; i<temp.Count; i++)
+		{
+			if (temp[i].Hitbox.Contains(position))
+			{
+				return temp[i];
+			}
+		}
+
+		return Permanent.Null;
 	}
 	public bool IsWithin(string zone, int id)
 	{

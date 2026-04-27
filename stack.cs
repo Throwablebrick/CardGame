@@ -26,8 +26,8 @@ public class Stack<T>
 	{
 		_stack.Clear();
 	}
-	public int Count()
+	public int Count
 	{
-		return _stack.Count();
+		get _stack.Count;
 	}
 }

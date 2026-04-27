@@ -1,3 +1,4 @@
+using System;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -9,5 +10,11 @@ public abstract class INumber
 	public abstract bool Resolve(CardScene scene);
 	public static INumber FromFile(XElement element)
 	{
+		if (element.Name == "INumberLiteral")
+		{
+			return new INumberLiteral(Convert.ToInt32(element.Value));
+		}
+		return One;
 	}
+	public static INumber One = new INumberLiteral(1);
 }

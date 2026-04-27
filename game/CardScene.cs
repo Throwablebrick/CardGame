@@ -60,9 +60,25 @@ public class CardScene : Scene
 	{
 		if (Core.Input.Mouse.WasButtonJustPressed(MouseButton.Left))
 		{
-			if (CardChoose)
+			if (PermanentChoose)
 			{
-				//under construction
+				GivePermanent = ClickPermanent(Core.Input.Mouse.Position);
+			}
+			if (PlayerChoose)
+			{
+				GivePlayer = ChoosePlayer(Core.Input.Mouse.Position);
+			}
+			if (ZoneChoose)
+			{
+				GiveZone = ClickZone(Core.Input.Mouse.Position);
+			}
+		}
+		if (stack.Count != 0)
+		{
+			if (stack.Peek().Ready(this))
+			{
+				stack.Peek().Affect(this);
+				stack.Pop();
 			}
 		}
 		base.Update(gameTime);
@@ -78,14 +94,19 @@ public class CardScene : Scene
 		base.Draw(gameTime);
 	}
 
-	public Card ClickPermanent(Point position)
+	public Permanent ClickPermanent(Point position)
 	{
+		string player = ChoosePlayer(position);
+		return player == "Player1" ? Player1.WhichPermanent(position) : player == "Player2" ? Player2.WhichPermanent(position) : Permanent.Null;
 	}
 	public string ClickZone(Point position)
 	{
+		string player = ChoosePlayer(position);
+		return player == "Player1" ? Player1.WhichZone(position) : player == "Player2" ? Player2.WhichZone(position) : "null";
 	}
 	public string ChoosePlayer(Point position)
 	{
+		return Player1.Board.Contains(position) ? "Player1" : Player2.Board.Contains(position) ? "Player2" : "null";
 	}
 	public bool IsWithin(string zone, string player, int id)
 	{
