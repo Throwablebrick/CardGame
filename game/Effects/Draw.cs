@@ -18,10 +18,10 @@ public class Draw : Effect
 	}
 	public override void Affect(CardScene scene)
 	{
-		if (Target == "Player1")
+		if (Target.Value == "Player1")
 		{
 			scene.Player1.Draw(Amount.Value);
-		} else if (Target == "Player2")
+		} else if (Target.Value == "Player2")
 		{
 			scene.Player2.Draw(Amount.Value);
 		}

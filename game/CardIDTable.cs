@@ -18,13 +18,13 @@ public class FrequencyTable
     public void FrequencyIncrement(string InstanceID)
     {
         string baseID = InstanceID[6].ToString() + InstanceID[7].ToString() + InstanceID[8].ToString() + InstanceID[10].ToString();
-        int index = Convert.ToInt64(baseID, 16);
+        long index = Convert.ToInt64(baseID, 16);
         _frequencyTable[index]++;
     }
     public void FrequencyDecrement(string InstanceID)
     {
-        string baseID = InstanceID[6] + InstanceID[7] + InstanceID[8] + InstanceID[10];
-        int index = Convert.ToInt64(baseID, 16);
+        string baseID = InstanceID[6].ToString() + InstanceID[7].ToString() + InstanceID[8].ToString() + InstanceID[10].ToString();
+        long index = Convert.ToInt64(baseID, 16);
         _frequencyTable[index]--;
     }
 }

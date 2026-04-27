@@ -16,7 +16,7 @@ public class Effect
 	{
 		if (root.Name == "example")
 		{
-			return Draw(root.Element("parameter 1"), root.Element("parameter 2"));
+			return new Draw(root.Element("parameter 1"), root.Element("parameter 2"));
 		}
 	}
 }

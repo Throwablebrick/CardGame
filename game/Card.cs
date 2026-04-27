@@ -38,12 +38,11 @@ public class Card
 	public Effect OnPlay;
 
     //CardData constructors
-    public Card(string cardName, string cardType, string cardDescriptionText, /*string cardDescriptionCode,*/ Sprite cardSprite, int[] cardCost)
+    public Card(string cardName, string cardType, string cardDescriptionText, Sprite cardSprite, int[] cardCost)
     {
         _cardName = cardName;
         _cardType = cardType;
         _cardDescriptionText = cardDescriptionText;
-        //_cardDescriptionCode = cardDescriptionCode;
         _cardSprite = cardSprite;
         _cardCost = cardCost;
     }
@@ -61,6 +60,11 @@ public class Card
 		//this should only really be called by the FromFile method unless you want to manually set values yourself
 		//like in the coresponding constructor for TextureAtlas which this approach is coppied from with the FromFile method
 		_cardCost = new int[2]; //change to whatever the max number of kinds of costs there are, 2 for now.
+	}
+	public Card(string name, string type)
+	{
+		_cardName=name;
+		_cardType=type;
 	}
 
 	public void Draw(SpriteBatch spriteBatch, Vector2 position)
@@ -115,7 +119,7 @@ public class Card
 					}
 				}
 
-				OnPlay = new Effect(root.Element("OnPlay"));
+				card.OnPlay = Effect.FromFile(root.Element("OnPlay"));
 
 				if (card.CardType == "Creature" || card.CardType == "Emblem")
 				{
@@ -127,6 +131,5 @@ public class Card
 		}
 	}
 
-    //CardDate methods
-    //Going to wait to implement methods until we finalize some card interaction rules and whatnot
+	public static Card Null = new Card("null", "null");
 }

@@ -40,13 +40,11 @@ public class CardScene : Scene
 		atlas.AddRegion("your mother", 0, 0, 175, 117);
 		_zone = atlas.CreateSprite("your mother");
 
-		LoadDeckFromFile(Content, "decks/base.xml", _deck);
+		Player1 = new Player(Content, "decks/base.xml", "Player1");
+		Player2 = new Player(Content, "decks/base.xml", "Player2");
 		
-		//this will be replaced with a method called DrawCard() that grabs and removes a card from the deck
-		for (int i = 0; i<7; i++)
-		{
-			_hand.Add(DrawCard());
-		}
+		Player1.Draw(7);
+		Player2.Draw(7);
 	}
 
 	public override void Update(GameTime gameTime)
@@ -66,10 +64,6 @@ public class CardScene : Scene
 		Core.GraphicsDevice.Clear(Color.CornflowerBlue);
 
 		Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
-		for (int i = 0; i<_hand.Count; i++)
-		{
-			_hand[i].Draw(Core.SpriteBatch, new Vector2(640.0f - (_hand.Count * _hand[i].Width/2) + (_hand[0].Width * i), 720.0f - _hand[0].Height));
-		}
 		Core.SpriteBatch.End();
 
 		base.Draw(gameTime);

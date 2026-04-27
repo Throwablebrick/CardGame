@@ -1,9 +1,12 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework.Content;
+using System.Xml;
+using System.IO;
+using System.Xml.Linq;
 using MonoGameLibrary;
 using MonoGameLibrary.Scenes;
+using Microsoft.Xna.Framework;
 using MonoGameLibrary.Graphics;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework.Content;
 
 
 namespace CardGame;
@@ -66,10 +69,16 @@ public class Player
 				{
 					foreach (var card in cards)
 					{
-						Deck.Add(card.Value);
+						Deck.Add(Card.FromFile(content, card.Value));
 					}
 				}
 			}
 		}
+	}
+
+	public Card ClickedOnWhat(Point position)
+	{
+		//call from the ClickedCard class
+		//check through all the cards in hand, and each zone and return the card whose Rectangle contains the point position
 	}
 }
