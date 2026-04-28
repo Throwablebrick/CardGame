@@ -33,6 +33,7 @@ public class CardScene : Scene
 
 	public Player Player1;
 	public Player Player2;
+	public Player CurrentPlayer;
 
 	public Stack<Effect> stack;
 	
@@ -49,11 +50,13 @@ public class CardScene : Scene
 		atlas.AddRegion("your mother", 0, 0, 175, 117);
 		_zone = atlas.CreateSprite("your mother");
 
-		Player1 = new Player(Content, "decks/base.xml", "Player1");
-		Player2 = new Player(Content, "decks/base.xml", "Player2");
+		Player1 = new Player(Content, "decks/AllInsight.xml", "Player1");
+		Player2 = new Player(Content, "decks/AllInsight.xml", "Player2");
 		
 		Player1.Draw(7);
 		Player2.Draw(7);
+
+		stack = new Stack<Effect>();
 	}
 
 	public override void Update(GameTime gameTime)

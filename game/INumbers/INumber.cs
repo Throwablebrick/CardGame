@@ -10,9 +10,13 @@ public abstract class INumber
 	public abstract bool Resolve(CardScene scene);
 	public static INumber FromFile(XElement element)
 	{
-		if (element.Name == "INumberLiteral")
+		var elms = element.Elements();
+		foreach (var el in elms)
 		{
-			return new INumberLiteral(Convert.ToInt32(element.Value));
+			if (el.Name == "INumberLiteral")
+			{
+				return new INumberLiteral(Convert.ToInt32(el.Value));
+			}
 		}
 		return One;
 	}

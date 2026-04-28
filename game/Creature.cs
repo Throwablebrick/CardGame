@@ -15,7 +15,7 @@ public class Creature : Permanent
 
 	public int Zone; //int for now, change as needed
 
-	public Creature(Card card, XElement root) : base(card)
+	public Creature(Card card, XElement root) : base(card, root)
 	{
 	}
 

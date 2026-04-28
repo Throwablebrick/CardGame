@@ -10,9 +10,13 @@ public abstract class Effect
 
 	public static Effect FromFile(XElement root)
 	{
-		if (root.Name == "Draw")
+		var elms = root.Elements();
+		foreach (var el in elms)
 		{
-			return new Draw(root.Element("parameter 1"), root.Element("parameter 2"));
+			if (el.Name == "Draw")
+			{
+				return new Draw(el);
+			}
 		}
 		return null;
 	}

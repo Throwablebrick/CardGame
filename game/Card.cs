@@ -123,9 +123,12 @@ public class Card
 
 				card.OnPlay = Effect.FromFile(root.Element("OnPlay"));
 
-				if (card.CardType == "Creature" || card.CardType == "Emblem")
+				if (card.CardType == "Emblem")
 				{
 					card = new Permanent(card, root);
+				}else if (card.CardType == "Creature")
+				{
+					card = new Creature(card, root);
 				}
 
 				return card;

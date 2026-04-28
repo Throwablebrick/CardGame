@@ -6,10 +6,17 @@
 	<Name>Insight</Name>
 	<Type>Spell</Type>
 	<Text>Draw 1 card</Text>
-	<AttackPower>-1</AttackPower>
-	<Life>-1</Life>
-	<ZoneChanges>-1</ZoneChanges>
 	<Costs>
 		<Cost value="1" element="Mana"/>
 	</Costs>
+	<OnPlay>
+		<Draw>
+			<INumber>
+				<INumberLiteral>1</INumberLiteral>
+			</INumber>
+			<TargetPlayer>
+				<OwnerOfThisCard></OwnerOfThisCard>
+			</TargetPlayer>
+		</Draw>
+	</OnPlay>
 </CardData>

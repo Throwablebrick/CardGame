@@ -15,6 +15,11 @@ public class Player
 {
 	public Player(ContentManager content, string deckPath, string name)
 	{
+		Deck = new List<Card>();
+		Hand = new List<Card>();
+		NuetralZone = new List<Permanent>();
+		AttackZone = new List<Permanent>();
+		DefenseZone = new List<Permanent>();
 		Energy = 20;
 		LoadDeckFromFile(content, deckPath);
 		Name = name;

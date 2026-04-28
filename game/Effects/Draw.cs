@@ -8,13 +8,10 @@ public class Draw : Effect
 	public INumber Amount;
 	public TargetPlayer Target;
 
-	public Draw(XElement number, XElement player)
+	public Draw(XElement root)
 	{
-		Amount = INumber.FromFile(number);
-		/*
-		 * under construction
-		Target = player.Name;
-		*/
+		Amount = INumber.FromFile(root.Element("INumber"));
+		Target = TargetPlayer.FromFile(root.Element("TargetPlayer"));
 	}
 	public override void Affect(CardScene scene)
 	{

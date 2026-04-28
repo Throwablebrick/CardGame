@@ -382,6 +382,9 @@
 #begin cards/Spells/Weaken.xml
 /copy:cards/Spells/Weaken.xml
 
+#begin decks/AllInsight.xml
+/copy:decks/AllInsight.xml
+
 #begin decks/base.xml
 /copy:decks/base.xml
 
