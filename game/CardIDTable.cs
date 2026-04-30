@@ -2,7 +2,7 @@ using System;
 
 public class FrequencyTable
 {
-    private int[] _frequencyTable = new int[65536];
+    private CardInstantTable[] _frequencyTable = new CardInstantTable[65536];
     private void InitializeFrequencyTable()
     {
         int index = 0;
@@ -15,13 +15,19 @@ public class FrequencyTable
     {
         InitializeFrequencyTable();
     }
-    public void FrequencyIncrement(string InstanceID)
+    public int GetIndexFromID(string InstanceID)
     {
         string baseID = InstanceID[6].ToString() + InstanceID[7].ToString() + InstanceID[8].ToString() + InstanceID[10].ToString();
         long index = Convert.ToInt64(baseID, 16);
-        _frequencyTable[index]++;
+        return index;
     }
-    public void FrequencyDecrement(string InstanceID)
+    public int GetFrequencyIncrement(string InstanceID)
+    {
+        string baseID = InstanceID[6].ToString() + InstanceID[7].ToString() + InstanceID[8].ToString() + InstanceID[10].ToString();
+        long index = Convert.ToInt64(baseID, 16);
+        _frequencyTable[index];
+    }
+    public int FrequencyDecrement(string InstanceID)
     {
         string baseID = InstanceID[6].ToString() + InstanceID[7].ToString() + InstanceID[8].ToString() + InstanceID[10].ToString();
         long index = Convert.ToInt64(baseID, 16);

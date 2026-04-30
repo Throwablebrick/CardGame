@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardData>
+	<SpritePath>sprites/card.xml</SpritePath>
+	<SpriteName>0</SpriteName>
+	<Scale x="4.0" y="4.0"/>
+	<Name>Beetle</Name>
+	<Type>Creature</Type>
+	<Text></Text>
+	<AttackPower>6</AttackPower>
+	<Life>7</Life>
+	<ZoneChanges>2</ZoneChanges>
+	<Costs>
+		<Cost value="6" element="Mana"/>
+	</Costs>
+</CardData>
