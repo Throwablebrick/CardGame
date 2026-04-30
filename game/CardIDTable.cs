@@ -1,5 +1,5 @@
 using System;
-
+/*
 public class FrequencyTable
 {
     private CardInstantTable[] _frequencyTable = new CardInstantTable[65536];
@@ -34,3 +34,4 @@ public class FrequencyTable
         _frequencyTable[index]--;
     }
 }
+*/

@@ -1,4 +1,5 @@
-public class CardTableInstance
+using System;
+public class CardInstantTable
 {
     private string[] _cardTable;
     public string[] CardTable
@@ -142,7 +143,7 @@ public class CardTableInstance
             _frequencyTable[index] = tempFrequencyTable[index];
         }
     }
-    public static int BinarySearch(CardTableInstance cardTableToSearch, string instanceID, int upperBound, int lowerBound)
+    public static int BinarySearch(CardInstantTable cardTableToSearch, string instanceID, int upperBound, int lowerBound)
     {
         int midValue = (lowerBound + upperBound)/2;
         string IDOfArrayToSearch = cardTableToSearch.GetCardTableAtIndex(midValue); 
@@ -252,13 +253,13 @@ public class CardTableInstance
         }
         return sortedArray;
     }
-    public CardTableInstance()
+    public CardInstantTable()
     {
         _cardTable = new string[260];
         _frequencyTable = new int[260];
         _cardTable[0] = "0";
     }
-    public CardTableInstance(int cardTableSize)
+    public CardInstantTable(int cardTableSize)
     {
         _cardTable = new string[cardTableSize];
         _frequencyTable = new int[cardTableSize];
