@@ -1,2 +1,3 @@
-get the visual information set up so that the player can draw and select cards.
 set up the mana system and the turn system and the phases.
+finish implimenting the ability to play cards
+set up display info for mana and energy

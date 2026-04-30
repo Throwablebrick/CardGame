@@ -388,6 +388,9 @@
 #begin decks/base.xml
 /copy:decks/base.xml
 
+#begin sprites/AlphaCards.xml
+/copy:sprites/AlphaCards.xml
+
 #begin sprites/base_card_temp.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -414,4 +417,28 @@
 
 #begin sprites/card.xml
 /copy:sprites/card.xml
+
+#begin sprites/Insight.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sprites/Insight.png
+
+#begin sprites/selector.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sprites/selector.png
 

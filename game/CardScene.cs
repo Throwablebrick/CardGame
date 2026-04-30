@@ -28,6 +28,8 @@ public class CardScene : Scene
 	public bool ZoneChoose;
 	public string GiveZone;
 
+	public Card SelectedCard;
+
 	private Sprite _zone;
 	private Random rand;
 
@@ -45,13 +47,9 @@ public class CardScene : Scene
 
 	public override void LoadContent()
 	{
-		//for reference this is what you do if you haven't made an xml file to make a textureatlas from that file
-		TextureAtlas atlas = new TextureAtlas(Content.Load<Texture2D>("sprites/card_zone_temp"));
-		atlas.AddRegion("your mother", 0, 0, 175, 117);
-		_zone = atlas.CreateSprite("your mother");
-
 		Player1 = new Player(Content, "decks/AllInsight.xml", "Player1");
 		Player2 = new Player(Content, "decks/AllInsight.xml", "Player2");
+		CurrentPlayer = Player1;
 		
 		Player1.Draw(7);
 		Player2.Draw(7);
@@ -75,6 +73,7 @@ public class CardScene : Scene
 			{
 				GiveZone = ClickZone(Core.Input.Mouse.Position);
 			}
+			CurrentPlayer.Select(Core.Input.Mouse.Position);
 		}
 		if (stack.Count != 0)
 		{
@@ -84,6 +83,7 @@ public class CardScene : Scene
 				stack.Pop();
 			}
 		}
+		CurrentPlayer.UpdateHand();
 		base.Update(gameTime);
 	}
 
@@ -92,6 +92,7 @@ public class CardScene : Scene
 		Core.GraphicsDevice.Clear(Color.CornflowerBlue);
 
 		Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+		CurrentPlayer.Display(Core.SpriteBatch);
 		Core.SpriteBatch.End();
 
 		base.Draw(gameTime);

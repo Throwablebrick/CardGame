@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+	<Texture>sprites/Insight</Texture>
+	<Regions>
+		<Region name="Insight" x="0" y="0" width="160" height="224" />
+	</Regions>
+	<Animations>
+	</Animations>
+</TextureAtlas>

@@ -23,8 +23,8 @@ public class Card
     private int[] _cardCost;
 
 	public Rectangle Hitbox = new Rectangle(0,0,160,224); //add default values
-	public int X=0;
-	public int Y=0;
+	public int X {get{return Hitbox.X;}}
+	public int Y {get{return Hitbox.Y;}}
     
     //CardData properties
     public string CardName {get{return _cardName;} set {_cardName = value;}}
@@ -126,11 +126,13 @@ public class Card
 				if (costs != null)
 				{
 					int i = 0;
+					string costType = "Mana";
 					foreach (var cost in costs)
 					{
+						costType = cost.Attribute("element")?.Value ?? "Mana";
+						i = costType == "Mana" ? 0 : costType == "Energy" ? 1 : 2;
 						card.CardCost[i] = int.Parse(cost.Attribute("value")?.Value ?? "0");
 						//this could also have an attribute akin to color that could be set here
-						i++;
 					}
 				}
 

@@ -1,3 +1,4 @@
+using System;
 using System.Xml;
 using System.IO;
 using System.Xml.Linq;
@@ -7,6 +8,7 @@ using Microsoft.Xna.Framework;
 using MonoGameLibrary.Graphics;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 
 namespace CardGame;
@@ -20,6 +22,7 @@ public class Player
 		NuetralZone = new List<Permanent>();
 		AttackZone = new List<Permanent>();
 		DefenseZone = new List<Permanent>();
+		selector = content.Load<Texture2D>("sprites/selector");
 		Energy = 20;
 		LoadDeckFromFile(content, deckPath);
 		Name = name;
@@ -38,10 +41,13 @@ public class Player
 
 	public List<Card> Deck;
 	public List<Card> Hand;
+	private int SelectedIndexHand=-1;
 
 	public List<Permanent> NuetralZone;
+	private int SelectedIndexActivated;
 	public List<Permanent> AttackZone;
 	public List<Permanent> DefenseZone;
+	private int SelectedIndexCombat;
 
 	// add default sizes for these
 	public Rectangle NuetralRect;
@@ -49,6 +55,7 @@ public class Player
 	public Rectangle DefenseRect;
 
 	public Rectangle Board;
+	private Texture2D selector;
 
 	public void Draw(int amount)
 	{
@@ -102,6 +109,19 @@ public class Player
 
 		return Permanent.Null;
 	}
+	public void Select(Point position)
+	{
+		bool notChanged = true;
+		for (int i=0; i<Hand.Count; i++)
+		{
+			if (Hand[i].Hitbox.Contains(position))
+			{
+				SelectedIndexHand = i;
+				notChanged = false;
+			}
+		}
+		SelectedIndexHand = notChanged ? -1 : SelectedIndexHand;
+	}
 	public bool IsWithin(string zone, int id)
 	{
 		List<Permanent> temp;
@@ -116,7 +136,44 @@ public class Player
 		return false;
 	}
 
-	public void Display()
+	private int _prevCardsInHand=0;
+	public void UpdateHand()
 	{
+		for (int i=0; i<Hand.Count; i++)
+		{
+			if (_prevCardsInHand != Hand.Count)
+			{
+				Hand[i].Move((1280-Hand[i].Hitbox.Width)/Hand.Count * (i), 720 - (int)Hand[i].Height);
+			}
+			if (i!=0 && Hand[i].Hitbox.Intersects(Hand[i-1].Hitbox))
+			{
+				Hand[i-1].Hitbox = new Rectangle(Hand[i-1].Hitbox.X, 720 - Hand[i].Hitbox.Height, Hand[i].Hitbox.X-Hand[i-1].Hitbox.X, Hand[i-1].Hitbox.Height);
+			}
+		}
+		//_prevCardsInHand = Hand.Count;
+	}
+	public void Display(SpriteBatch batch)
+	{
+		bool displayLast = false;
+		for (int i=0; i<Hand.Count; i++)
+		{
+			if (i == SelectedIndexHand)
+			{
+				displayLast = true;
+			}else
+			{
+				Hand[i].Draw(batch);
+			}
+		}
+		if (displayLast)
+		{
+			Hand[SelectedIndexHand].Draw(batch);
+			batch.Draw(selector, Hand[SelectedIndexHand].Hitbox, Color.White);
+		}
+	}
+
+	public Card Play()
+	{
+		return Card.Null;
 	}
 }
