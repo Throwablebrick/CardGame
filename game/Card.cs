@@ -73,12 +73,25 @@ public class Card
 	{
 		_cardSprite.Draw(spriteBatch, position);
 	}
+	public void Draw(SpriteBatch spriteBatch)
+	{
+		_cardSprite.Draw(spriteBatch, new Vector2((float)Hitbox.X,(float)Hitbox.Y));
+	}
 
 	public void Play(CardScene state)
 	{
 		//wait for counterspells
 		//make this add trigered abilities to the trigger list
 		state.stack.Push(OnPlay);
+	}
+
+	public void Move(Point possition)
+	{
+		Move(possition.X, possition.Y);
+	}
+	public void Move(int x, int y)
+	{
+		Hitbox = new Rectangle(x,y,Hitbox.Width,Hitbox.Height);
 	}
 
 	public static Card FromFile(ContentManager content, string fileName)

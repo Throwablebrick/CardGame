@@ -54,8 +54,8 @@ public class Player
 	{
 		for (int i = 0; i<amount; i++)
 		{
-			Hand.Add(Deck[i]);
-			Deck.RemoveAt(i);
+			Hand.Add(Deck[0]);
+			Deck.RemoveAt(0);
 			//tell cardScene you drew a card
 		}
 	}
@@ -114,5 +114,9 @@ public class Player
 			}
 		}
 		return false;
+	}
+
+	public void Display()
+	{
 	}
 }
