@@ -2,7 +2,7 @@ using System;
 
 public class FrequencyTable
 {
-    private CardInstantTable[] _frequencyTable = new CardInstantTable[65536];
+    private CardInstantTable[] _frequencyTable;
     public FrequencyTable()
     {
         _frequencyTable = new CardInstantTable[65536];
