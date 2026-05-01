@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System;
+namespace CardGame;
 public class CardSearch
 {
     public static List<int> search(string pattern, string text)
@@ -48,12 +50,5 @@ public class CardSearch
             }
         }
         return answer;
-    }
-    public CardSearch()
-    {
-        string text = "Thisisatestfortheissytime";
-        string pattern = "is";
-        List<int> result = search(pattern, text);
-        Console.WriteLine(string.Join(" ", result));
     }
 }
