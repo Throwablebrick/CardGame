@@ -1,5 +1,5 @@
 using System;
-public class CardInstantTable
+public class CardInstanceTable
 {
     //Holds the Modification IDs of a card
     private string[] _cardTable;
@@ -183,7 +183,7 @@ public class CardInstantTable
             _frequencyTable[index] = tempFrequencyTable[index];
         }
     }
-    public static int BinarySearch(CardInstantTable cardTableToSearch, string instanceID, int upperBound, int lowerBound)
+    public static int BinarySearch(CardInstanceTable cardTableToSearch, string instanceID, int upperBound, int lowerBound)
     {
         //finds mid value
         int midValue = (lowerBound + upperBound)/2;
@@ -311,7 +311,7 @@ public class CardInstantTable
         }
         return sortedArray;
     }
-    public CardInstantTable()
+    public CardInstanceTable()
     {
         //default size (4 cards in deck + 256 token copies)
         _cardTable = new string[260];
@@ -319,7 +319,7 @@ public class CardInstantTable
         //sets the index 0 to be the base id
         _cardTable[0] = "0";
     }
-    public CardInstantTable(int cardTableSize)
+    public CardInstanceTable(int cardTableSize)
     {
         //custom size
         _cardTable = new string[cardTableSize];

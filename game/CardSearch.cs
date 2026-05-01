@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System;
-namespace CardGame;
 public class CardSearch
 {
     public static List<int> search(string pattern, string text)

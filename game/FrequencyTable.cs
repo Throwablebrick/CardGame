@@ -3,17 +3,17 @@ using System;
 public class FrequencyTable
 {
     //our hash table
-    private CardInstantTable[] _frequencyTable;
+    private CardInstanceTable[] _frequencyTable;
     public FrequencyTable()
     {
         //default size for possible card ids
-        _frequencyTable = new CardInstantTable[65536];
+        _frequencyTable = new CardInstanceTable[65536];
         InitializeFrequencyTable();
     }
     public FrequencyTable(int frequencyTableSize, int cardInstantTableSize)
     {
         //custom sizes for testing purposes
-        _frequencyTable = new CardInstantTable[frequencyTableSize];
+        _frequencyTable = new CardInstanceTable[frequencyTableSize];
         InitializeFrequencyTable(cardInstantTableSize);
 
     }
@@ -23,7 +23,7 @@ public class FrequencyTable
         int index = 0;
         while (index < _frequencyTable.Length)
         {
-            _frequencyTable[index] = new CardInstantTable();
+            _frequencyTable[index] = new CardInstanceTable();
         }
     }
     private void InitializeFrequencyTable(int tableSize)
@@ -32,7 +32,7 @@ public class FrequencyTable
         int index = 0;
         while (index < _frequencyTable.Length)
         {
-            _frequencyTable[index] = new CardInstantTable(tableSize);
+            _frequencyTable[index] = new CardInstanceTable(tableSize);
         }
     }
     //grabs what the card ID is from an instance ID, acts as a hash function for our hash table
@@ -50,13 +50,13 @@ public class FrequencyTable
     //adds a card to the frequency table
     public void AddCardToTable(string instanceID)
     {
-        string baseID = GetIndexFromID(instanceID);
+        int baseID = GetIndexFromID(instanceID);
         _frequencyTable[baseID].AddInstanceToCardTable(GetModificationFromID(instanceID));
     }
     //removes a card to the frequency table
     public void RemoveCardFromTable(string instanceID)
     {
-        string baseID = GetIndexFromID;
+        int baseID = GetIndexFromID(instanceID);
         _frequencyTable[baseID].RemoveInstanceFromTheCardTable(GetModificationFromID(instanceID));
     }
 }
