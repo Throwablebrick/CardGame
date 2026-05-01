@@ -1,3 +1,4 @@
+using System;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,7 @@ public class Draw : Effect
 		{
 			scene.Player2.Draw(Amount.Value);
 		}
+		//Console.WriteLine($"{Target.Value} drew {Amount.Value} cards");
 	}
 	public override bool Ready(CardScene scene)
 	{

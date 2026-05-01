@@ -17,7 +17,7 @@ public class Player
 {
 	public Player(ContentManager content, string deckPath, string name)
 	{
-		Deck = new List<Card>();
+		Deck = new Queue<Card>();
 		Hand = new List<Card>();
 		NuetralZone = new List<Permanent>();
 		AttackZone = new List<Permanent>();
@@ -26,6 +26,7 @@ public class Player
 		Energy = 20;
 		LoadDeckFromFile(content, deckPath);
 		Name = name;
+		MaxMana=1;
 	}
 	public Player(ContentManager content, string deckPath, int evergy, string name)
 	{
@@ -37,11 +38,12 @@ public class Player
 	public string Name;
 
 	public int Mana;
+	public int MaxMana;
 	public int Energy;
 
-	public List<Card> Deck;
+	public Queue<Card> Deck;
 	public List<Card> Hand;
-	private int SelectedIndexHand=-1;
+	public int SelectedIndexHand=-1;
 
 	public List<Permanent> NuetralZone;
 	private int SelectedIndexActivated;
@@ -61,8 +63,8 @@ public class Player
 	{
 		for (int i = 0; i<amount; i++)
 		{
-			Hand.Add(Deck[0]);
-			Deck.RemoveAt(0);
+			Hand.Add(Deck.Peek());
+			Deck.Dequeue();
 			//tell cardScene you drew a card
 		}
 	}
@@ -83,7 +85,7 @@ public class Player
 				{
 					foreach (var card in cards)
 					{
-						Deck.Add(Card.FromFile(content, card.Value));
+						Deck.Enqueue(Card.FromFile(content, card.Value));
 					}
 				}
 			}
@@ -109,7 +111,7 @@ public class Player
 
 		return Permanent.Null;
 	}
-	public void Select(Point position)
+	public bool Select(Point position)
 	{
 		bool notChanged = true;
 		for (int i=0; i<Hand.Count; i++)
@@ -121,6 +123,8 @@ public class Player
 			}
 		}
 		SelectedIndexHand = notChanged ? -1 : SelectedIndexHand;
+		Console.WriteLine(SelectedIndexHand);
+		return !notChanged;
 	}
 	public bool IsWithin(string zone, int id)
 	{
@@ -143,9 +147,9 @@ public class Player
 		{
 			if (_prevCardsInHand != Hand.Count)
 			{
-				Hand[i].Move((1280-Hand[i].Hitbox.Width)/Hand.Count * (i), 720 - (int)Hand[i].Height);
+				Hand[i].Move((int)((1280-Hand[i].Width)/(Hand.Count-1)*i), 720 - (int)Hand[i].Height);
 			}
-			if (i!=0 && Hand[i].Hitbox.Intersects(Hand[i-1].Hitbox))
+			if (i!=0 && i-1!=SelectedIndexHand && Hand[i].Hitbox.Intersects(Hand[i-1].Hitbox))
 			{
 				Hand[i-1].Hitbox = new Rectangle(Hand[i-1].Hitbox.X, 720 - Hand[i].Hitbox.Height, Hand[i].Hitbox.X-Hand[i-1].Hitbox.X, Hand[i-1].Hitbox.Height);
 			}
@@ -168,12 +172,7 @@ public class Player
 		if (displayLast)
 		{
 			Hand[SelectedIndexHand].Draw(batch);
-			batch.Draw(selector, Hand[SelectedIndexHand].Hitbox, Color.White);
+			batch.Draw(selector, new Vector2((float)Hand[SelectedIndexHand].X,(float)Hand[SelectedIndexHand].Y), Color.White);
 		}
-	}
-
-	public Card Play()
-	{
-		return Card.Null;
 	}
 }

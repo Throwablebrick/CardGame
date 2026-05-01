@@ -403,6 +403,21 @@
 /processorParam:TextureFormat=Color
 /build:sprites/base_card_temp.png
 
+#begin sprites/buttons.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sprites/buttons.png
+
+#begin sprites/buttons.xml
+/copy:sprites/buttons.xml
+
 #begin sprites/card_zone_temp.png
 /importer:TextureImporter
 /processor:TextureProcessor

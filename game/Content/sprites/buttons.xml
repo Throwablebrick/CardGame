@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+	<Texture>sprites/buttons</Texture>
+	<Regions>
+		<Region name="Pass" x="0" y="0" width="100" height="50" />
+		<Region name="Play" x="100" y="0" width="100" height="50" />
+	</Regions>
+	<Animations>
+	</Animations>
+</TextureAtlas>

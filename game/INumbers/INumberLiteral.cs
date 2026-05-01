@@ -5,7 +5,6 @@ namespace CardGame;
 
 public class INumberLiteral : INumber 
 {
-	public int Value;
 	public override bool Resolve(CardScene scene)
 	{
 		return true;
