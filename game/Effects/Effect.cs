@@ -16,6 +16,9 @@ public abstract class Effect
 			if (el.Name == "Draw")
 			{
 				return new Draw(el);
+			}else if (el.Name == "NullEffect")
+			{
+				return new NullEffect(el);
 			}
 		}
 		return null;

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Deck>
+	<Cards>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Creatures/Beetle.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Creatures/Beetle.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Creatures/Beetle.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Creatures/Beetle.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Creatures/Beetle.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Creatures/Beetle.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Creatures/Beetle.xml</Card>
+		<Card>cards/Creatures/Beetle.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Creatures/Beetle.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+		<Card>cards/Spells/Insight.xml</Card>
+	</Cards>
+</Deck>

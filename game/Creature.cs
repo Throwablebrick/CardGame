@@ -1,3 +1,4 @@
+using System;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -17,6 +18,20 @@ public class Creature : Permanent
 
 	public Creature(Card card, XElement root) : base(card, root)
 	{
+		var elms = root.Elements();
+		foreach (var el in elms)
+		{
+			if (el.Name == "AttackPower")
+			{
+				MaxAttackPower = Int32.Parse(el.Value);
+			}else if (el.Name == "Life")
+			{
+				MaxLife = Int32.Parse(el.Value);
+			}else if (el.Name == "ZoneChanges")
+			{
+				MaxZoneChanges = Int32.Parse(el.Value);
+			}
+		}
 	}
 
 	public Effect Attack;

@@ -3,6 +3,7 @@
 	<Texture>sprites/Insight</Texture>
 	<Regions>
 		<Region name="Insight" x="0" y="0" width="160" height="224" />
+		<Region name="Beetle" x="160" y="0" width="160" height="224" />
 	</Regions>
 	<Animations>
 	</Animations>

@@ -20,7 +20,9 @@ public class Card
     private string _cardType;
     private string _cardDescriptionText;
     private Sprite _cardSprite;
-    private int[] _cardCost;
+	public int ManaCost;
+	public int EnergyCost;
+	public int HybridCost;
 
 	public Rectangle Hitbox = new Rectangle(0,0,160,224); //add default values
 	public int X {get{return Hitbox.X;}}
@@ -31,7 +33,6 @@ public class Card
     public string CardType {get {return _cardType;} set {_cardType = value;}}
     public string CardDescriptionText {get {return _cardDescriptionText;} set {_cardDescriptionText = value;} /*set {_cardDescriptionText = value;} Might make it so that the value can be changed depending on how we want to implement card on card interaction UI*/}
     //public string CardDescriptionCode
-    public int[] CardCost {get {return _cardCost;} set {_cardCost = value;}}
 
     public Sprite CardSprite {get {return _cardSprite;} set {_cardSprite = value;}}
 	public float Width => _cardSprite.Width;
@@ -46,7 +47,6 @@ public class Card
         _cardType = cardType;
         _cardDescriptionText = cardDescriptionText;
         _cardSprite = cardSprite;
-        _cardCost = cardCost;
     }
     public Card(Card cardData)
     {
@@ -55,13 +55,15 @@ public class Card
         _cardDescriptionText = cardData.CardDescriptionText;
         //_cardDescriptionCode = cardData.CardDescriptionCode;
         _cardSprite = cardData.CardSprite;
-        _cardCost = cardData.CardCost;
+		ManaCost = cardData.ManaCost;
+		EnergyCost = cardData.EnergyCost;
+		HybridCost = cardData.HybridCost;
+		OnPlay = cardData.OnPlay;
     }
 	public Card()
 	{
 		//this should only really be called by the FromFile method unless you want to manually set values yourself
 		//like in the coresponding constructor for TextureAtlas which this approach is coppied from with the FromFile method
-		_cardCost = new int[2]; //change to whatever the max number of kinds of costs there are, 2 for now.
 	}
 	public Card(string name, string type)
 	{
@@ -125,13 +127,20 @@ public class Card
 
 				if (costs != null)
 				{
-					int i = 0;
 					string costType = "Mana";
 					foreach (var cost in costs)
 					{
 						costType = cost.Attribute("element")?.Value ?? "Mana";
-						i = costType == "Mana" ? 0 : costType == "Energy" ? 1 : 2;
-						card.CardCost[i] = int.Parse(cost.Attribute("value")?.Value ?? "0");
+						if (costType == "Mana")
+						{
+							card.ManaCost = Int32.Parse(cost.Attribute("value")?.Value ?? "0");
+						}else if (costType == "Energy")
+						{
+							card.EnergyCost = Int32.Parse(cost.Attribute("value")?.Value ?? "0");
+						}else if (costType == "Hybrid")
+						{
+							card.HybridCost = Int32.Parse(cost.Attribute("value")?.Value ?? "0");
+						}
 						//this could also have an attribute akin to color that could be set here
 					}
 				}

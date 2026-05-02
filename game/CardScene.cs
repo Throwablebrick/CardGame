@@ -43,6 +43,7 @@ public class CardScene : Scene
 	public Player Player1;
 	public Player Player2;
 	public Player CurrentPlayer;
+	public Player InactivePlayer;
 
 	public Stack<Effect> stack;
 
@@ -51,6 +52,7 @@ public class CardScene : Scene
 
 	private Button PlayCardButton;
 	private Button NextPhaseButton;
+	private SpriteFont _font;
 	
 	public override void Initialize()
 	{
@@ -62,9 +64,11 @@ public class CardScene : Scene
 
 	public override void LoadContent()
 	{
-		Player1 = new Player(Content, "decks/AllInsight.xml", "Player1");
+		Player1 = new Player(Content, "decks/InsightBeetle.xml", "Player1");
 		Player2 = new Player(Content, "decks/AllInsight.xml", "Player2");
+		Player2.SwapPlayers(false);
 		CurrentPlayer = Player1;
+		InactivePlayer = Player2;
 		
 		Player1.Draw(7);
 		Player2.Draw(7);
@@ -73,6 +77,7 @@ public class CardScene : Scene
 
 		PlayCardButton = new Button(Content, "sprites/buttons.xml", "Play", 1050, 430);
 		NextPhaseButton = new Button(Content, "sprites/buttons.xml", "Pass", 1160, 430);
+		_font = Content.Load<SpriteFont>("sprites/Font");
 	}
 
 	public override void Update(GameTime gameTime)
@@ -103,7 +108,19 @@ public class CardScene : Scene
 			NextPhase(true);
 			break;
 		case Phase.EndStep:
-			CurrentPlayer = CurrentPlayer == Player1 ? Player2 : Player1;
+			if (CurrentPlayer==Player1)
+			{
+				CurrentPlayer = Player2;
+				InactivePlayer = Player1;
+				Player2.SwapPlayers(true);
+				Player1.SwapPlayers(false);
+			} else
+			{
+				CurrentPlayer = Player1;
+				InactivePlayer = Player2;
+				Player1.SwapPlayers(true);
+				Player2.SwapPlayers(false);
+			}
 			CurrentPhase = changePhase ? Phase.Upkeep : CurrentPhase;
 			break;
 		}
@@ -124,14 +141,21 @@ public class CardScene : Scene
 			if (CurrentPhase == Phase.Main1 || CurrentPhase == Phase.Main2)
 			{
 				NextPhaseButton.Visible = true;
-				if (CurrentPlayer.SelectedIndexHand != -1)
+				if (CurrentPlayer.SelectedIndexHand != -1 && CurrentPlayer.SelectedIndexHand < CurrentPlayer.Hand.Count)
 				{
 					if (PlayCardButton.IsWithin(Core.Input.Mouse.Position))
 					{
-						if (CurrentPlayer.Mana >= CurrentPlayer.Hand[CurrentPlayer.SelectedIndexHand].CardCost[1])
+						if (CurrentPlayer.Mana >= CurrentPlayer.Hand[CurrentPlayer.SelectedIndexHand].ManaCost && CurrentPlayer.Energy >= CurrentPlayer.Hand[CurrentPlayer.SelectedIndexHand].EnergyCost)
 						{
 							stack.Push(CurrentPlayer.Hand[CurrentPlayer.SelectedIndexHand].OnPlay);
+							CurrentPlayer.Mana -= CurrentPlayer.Hand[CurrentPlayer.SelectedIndexHand].ManaCost;
+							CurrentPlayer.Energy -= CurrentPlayer.Hand[CurrentPlayer.SelectedIndexHand].EnergyCost;
+							if (CurrentPlayer.Hand[CurrentPlayer.SelectedIndexHand].CardType == "Creature")
+							{
+								CurrentPlayer.NuetralZone.Add((Creature)CurrentPlayer.Hand[CurrentPlayer.SelectedIndexHand]);
+							}
 							CurrentPlayer.Hand.RemoveAt(CurrentPlayer.SelectedIndexHand);
+							CurrentPlayer.SelectedIndexHand = -1;
 						}else
 						{
 							Console.WriteLine("not enough resources");
@@ -147,6 +171,7 @@ public class CardScene : Scene
 				NextPhaseButton.Visible = false;
 			}
 			PlayCardButton.Visible = CurrentPlayer.Select(Core.Input.Mouse.Position);
+			//Console.WriteLine($"{Core.Input.Mouse.Position.X}, {Core.Input.Mouse.Position.Y}");
 		}
 		if (stack.Count != 0)
 		{
@@ -162,6 +187,8 @@ public class CardScene : Scene
 			changePhase = true;
 		}
 		CurrentPlayer.UpdateHand();
+		CurrentPlayer.UpdateZones();
+		InactivePlayer.UpdateZones();
 		base.Update(gameTime);
 	}
 
@@ -170,9 +197,12 @@ public class CardScene : Scene
 		Core.GraphicsDevice.Clear(Color.CornflowerBlue);
 
 		Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
-		CurrentPlayer.Display(Core.SpriteBatch);
+		CurrentPlayer.DisplayHand(Core.SpriteBatch);
+		CurrentPlayer.DisplayZones(Core.SpriteBatch);
+		InactivePlayer.DisplayZones(Core.SpriteBatch);
 		PlayCardButton.Draw(Core.SpriteBatch);
 		NextPhaseButton.Draw(Core.SpriteBatch);
+		Core.SpriteBatch.DrawString(_font, $"{CurrentPlayer.Name}  {CurrentPhase}  Mana:{CurrentPlayer.Mana}  Energy:{CurrentPlayer.Energy}", 3*Vector2.One, Color.White);
 		Core.SpriteBatch.End();
 
 		base.Draw(gameTime);
@@ -202,7 +232,6 @@ public class CardScene : Scene
 		if (changePhase)
 		{
 			CurrentPhase = (Phase)((int)CurrentPhase + 1);
-			Console.WriteLine(CurrentPhase);
 			changePhase = stepThrough;
 		}
 	}

@@ -388,6 +388,9 @@
 #begin decks/base.xml
 /copy:decks/base.xml
 
+#begin decks/InsightBeetle.xml
+/copy:decks/InsightBeetle.xml
+
 #begin sprites/AlphaCards.xml
 /copy:sprites/AlphaCards.xml
 
@@ -433,6 +436,13 @@
 #begin sprites/card.xml
 /copy:sprites/card.xml
 
+#begin sprites/Font.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:sprites/Font.spritefont
+
 #begin sprites/Insight.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -444,6 +454,9 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sprites/Insight.png
+
+#begin sprites/PressStart2P.ttf
+/copy:sprites/PressStart2P.ttf
 
 #begin sprites/selector.png
 /importer:TextureImporter
