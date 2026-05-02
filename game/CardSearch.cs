@@ -51,11 +51,4 @@ public class CardSearch
         }
         return answer;
     }
-    public CardSearch()
-    {
-        string text = "Thisisatestfortheissytime";
-        string pattern = "is";
-        List<int> result = search(pattern, text);
-        Console.WriteLine(string.Join(" ", result));
-    }
 }
